@@ -1,0 +1,8 @@
+﻿# 成年有效男性
+los_is_avaliable_male = {
+    is_available_adult = yes
+    is_male = yes
+    is_in_army = no
+    is_traveling = no
+    is_imprisoned = no
+}
