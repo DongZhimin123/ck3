@@ -20,6 +20,8 @@ los_invite_peer_vassals_interaction = {
     is_shown = {
         scope:recipient.liege = scope:actor.liege
 
+        NOT = { scope:actor = scope:recipient }
+
         scope:actor.liege = {
             government_has_flag = government_is_administrative
         }
@@ -45,10 +47,10 @@ los_invite_peer_vassals_interaction = {
 
     on_accept = {
         scope:actor = {
-            save_scope_as = los_master
+            save_scope_as = los_host
 
             send_interface_message = {
-                type = event_activity_good_with_text
+                type = event_chancellor_task_good
                 title = los_invite_peer_vassals_interaction_accept_message.t
                 desc = los_invite_peer_vassals_interaction_accept_message.d
                 right_icon = scope:actor
@@ -61,7 +63,7 @@ los_invite_peer_vassals_interaction = {
 
             start_travel_plan = {
                 destination = scope:actor.capital_province
-                on_arrival_event = los_interactions_peer_vassal.0001
+                on_arrival_event = los_invite_peer_vassals_event.0001
                 on_arrival_destinations = last
                 companion ?= scope:recipient.primary_spouse
                 return_trip = no
