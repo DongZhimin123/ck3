@@ -4,6 +4,6 @@ tags={
 	"Character Interactions"
 	"Character Focuses"
 }
-name="LoveOrSwing"
+name="los"
 supported_version="1.13.0.3"
 remote_file_id="3339761713"

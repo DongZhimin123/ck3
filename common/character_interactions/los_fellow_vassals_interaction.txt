@@ -1,0 +1,73 @@
+﻿# 邀请作客
+los_invite_peer_vassals_interaction = {
+    category = interaction_category_friendly
+    desc = los_invite_peer_vassals_interaction.d
+    common_interaction = yes
+    icon = icon_personal
+
+    use_diplomatic_range= yes
+
+    ignores_pending_interaction_block = yes
+
+    interface_priority = 200
+
+    greeting = positive
+
+    ai_intermediary_maybe = no
+    ai_min_reply_days = 4
+    ai_max_reply_days = 9
+
+    is_shown = {
+        scope:recipient.liege = scope:actor.liege
+
+        scope:actor.liege = {
+            government_has_flag = government_is_administrative
+        }
+    }
+
+    is_valid = {
+        AND = {
+            scope:actor = { los_is_avaliable_male = yes }
+            scope:recipient = {
+                AND = {
+                    los_is_avaliable_male = yes
+                    NOT = {has_relation_rival = scope:actor}
+                    NOT = {has_relation_nemesis = scope:actor}
+                }
+            }
+        }
+    }
+
+
+    ai_will_do = {base = 0}
+
+    ai_potential = {always = no}
+
+    auto_accept = yes
+
+    on_accept = {
+        scope:actor = {
+            save_scope_as = los_master
+
+            send_interface_message = {
+                type = event_activity_good_with_text
+                title = los_invite_peer_vassals_interaction_accept_message.t
+                desc = los_invite_peer_vassals_interaction_accept_message.d
+                right_icon = scope:actor
+                left_icon = scope:recipient
+            }
+        }
+
+        scope:recipient = {
+            save_scope_as = los_guest
+
+            start_travel_plan = {
+                destination = scope:actor.capital_province
+                on_arrival_event = los_interactions_peer_vassal.0001
+                on_arrival_destinations = all
+                companion ?= scope:recipient.primary_spouse
+                return_trip = no
+            }
+        }
+    }
+}
