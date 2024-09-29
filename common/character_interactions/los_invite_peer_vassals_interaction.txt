@@ -26,22 +26,20 @@ los_invite_peer_vassals_interaction = {
     }
 
     is_valid = {
-        AND = {
-            scope:actor = { los_is_avaliable_male = yes }
-            scope:recipient = {
-                AND = {
-                    los_is_avaliable_male = yes
-                    NOT = {has_relation_rival = scope:actor}
-                    NOT = {has_relation_nemesis = scope:actor}
-                }
+        scope:actor = { los_is_avaliable_male = yes }
+        scope:recipient = {
+            AND = {
+                los_is_avaliable_male = yes
+                NOT = { has_relation_rival = scope:actor }
+                NOT = { has_relation_nemesis = scope:actor }
             }
         }
     }
 
 
-    ai_will_do = {base = 0}
+    ai_will_do = { base = 0 }
 
-    ai_potential = {always = no}
+    ai_potential = { always = no }
 
     auto_accept = yes
 
@@ -64,7 +62,7 @@ los_invite_peer_vassals_interaction = {
             start_travel_plan = {
                 destination = scope:actor.capital_province
                 on_arrival_event = los_interactions_peer_vassal.0001
-                on_arrival_destinations = all
+                on_arrival_destinations = last
                 companion ?= scope:recipient.primary_spouse
                 return_trip = no
             }

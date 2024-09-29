@@ -1,0 +1,54 @@
+namespace = los_invite_peer_vassals_event
+
+# 邀请同僚事件 0001~0002
+los_invite_peer_vassals_event.0001 = {
+    hidden = yes
+    immediate = {
+        scope:los_guest = {
+            current_travel_plan ?= {
+                delay_travel_plan = { days = 30 }
+            }
+        }
+
+        scope:los_master = {
+            trigger_event = los_invite_peer_vassals_event.0002
+        }
+    }
+}
+
+# 欢迎
+los_invite_peer_vassals_event.0002 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.0002.t
+    theme = court
+
+    desc = {
+        triggered_desc = {
+            trigger = {
+                scope:los_master = {
+                    domicile ?= {
+                        has_domicile_building_or_higher = reception_hall_01
+                    }
+                }
+            }
+            desc = los_invite_peer_vassals_event.0002.d_1
+        }
+     
+        desc = los_invite_peer_vassals_event.0002.d_0
+    }
+
+    left_portrait = {
+        character = scope:los_master
+        animation = happiness
+    }
+
+    right_portrait = {
+        character = scope:los_guest
+        animation = happiness
+    }
+
+    option = {
+        name = moreinter_dating.700.a
+        trigger_event = moreinter_dating.675
+    }
+}
