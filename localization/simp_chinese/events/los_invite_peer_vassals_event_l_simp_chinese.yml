@@ -7,4 +7,5 @@
   
   los_invite_peer_vassals_event.0003.t: "接风洗尘"
   los_invite_peer_vassals_event.0003.d_0: "　　门外，[los_guest.GetTitledFirstName]夫妇停坐在马车里，周围分别由8名驾着骏马的骑士拱卫，紧随其后的是24名手持长枪的士兵，均穿着挂有亮片的华服，仪仗队的末端是两辆满载着礼品的马车。四面八方的人几乎都聚拢过来，想一睹客人的风采，毕竟如此大的阵仗搁在平时可不多见。大门两侧的卫兵瞥见我出来，这才立刻张罗好轿凳，搀扶着[los_guest.GetTitledFirstName]夫妇下御。\n　　由于，客人的突然到访，门外此时只有我一人迎接，我几乎什么都考虑到了，但是唯独忘记了提醒妻子。我按礼仪高调地赞美了客人的尊贵，和其夫人的美貌，请客人移驾。进门前，还不忘指示手下的人把事先准备好的零钱洒给围观的群众。"
-  los_invite_peer_vassals_event.0003.o_1: "我说："舟车劳顿，请先前去休息。""
+  los_invite_peer_vassals_event.0003.o_1: "我说：“舟车劳顿，请先稍作休息。”"
+  los_invite_peer_vassals_event.0003.o_1_ct: "我得去监办一下晚上的宴会。"

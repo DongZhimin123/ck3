@@ -12,6 +12,11 @@ los_invite_peer_vassals_event.0001 = {
             }
 
             scope:los_guest = {
+                # set_variable = {
+                #     name = los_guest_in_resting_room
+                #     value = 1
+                # }
+
                 current_travel_plan ?= {
                     delay_travel_plan = { days = 30 }
                 }
@@ -29,6 +34,8 @@ los_invite_peer_vassals_event.0002 = {
     type = character_event
     title = los_invite_peer_vassals_event.0002.t
     theme = court
+
+	window = visit_settlement_window
 
     immediate = {
         scope:los_host = {
@@ -95,6 +102,8 @@ los_invite_peer_vassals_event.0003 = {
     title = los_invite_peer_vassals_event.0003.t
     theme = friend_relation
 
+    window = visit_settlement_window
+
     override_background = {
         reference = garden
     }
@@ -121,6 +130,13 @@ los_invite_peer_vassals_event.0003 = {
 
     option = {
         name = los_invite_peer_vassals_event.0003.o_1
+        custom_tooltip = los_invite_peer_vassals_event.0003.o_1_ct
         # trigger_event = los_invite_peer_vassals_event.0003
+    }
+
+    after = {
+        # scope:los_guest = {
+        #     remove_variable = los_guest_in_resting_room
+        # }
     }
 }
