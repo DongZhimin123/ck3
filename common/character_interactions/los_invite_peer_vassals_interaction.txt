@@ -9,16 +9,18 @@ los_invite_peer_vassals_interaction = {
 
     ignores_pending_interaction_block = yes
 
-    interface_priority = 200
+    interface_priority = 150
 
     greeting = positive
 
     ai_intermediary_maybe = no
-    ai_min_reply_days = 4
-    ai_max_reply_days = 9
+    ai_min_reply_days = 7
+    ai_max_reply_days = 14
 
     is_shown = {
         scope:recipient.liege = scope:actor.liege
+
+        NOT = { scope:actor = scope:recipient }
 
         scope:actor.liege = {
             government_has_flag = government_is_administrative
@@ -26,10 +28,17 @@ los_invite_peer_vassals_interaction = {
     }
 
     is_valid = {
-        scope:actor = { los_is_avaliable_male = yes }
+        scope:actor = {
+            AND = {
+                los_is_avaliable_male = yes
+                exists = primary_spouse
+                # NOT = { has_character_modifier = los_preparation_modifier }
+            }
+        }
         scope:recipient = {
             AND = {
                 los_is_avaliable_male = yes
+                exists = primary_spouse
                 NOT = { has_relation_rival = scope:actor }
                 NOT = { has_relation_nemesis = scope:actor }
             }
@@ -45,23 +54,32 @@ los_invite_peer_vassals_interaction = {
 
     on_accept = {
         scope:actor = {
-            save_scope_as = los_master
+            save_scope_as = los_host
 
             send_interface_message = {
                 type = event_activity_good_with_text
                 title = los_invite_peer_vassals_interaction_accept_message.t
                 desc = los_invite_peer_vassals_interaction_accept_message.d
-                right_icon = scope:actor
                 left_icon = scope:recipient
             }
+
+            hidden_effect = {
+                add_character_modifier = {
+                    modifier = los_preparation_modifier
+                    years = 10
+                }
+            }
+
         }
 
         scope:recipient = {
             save_scope_as = los_guest
 
+
             start_travel_plan = {
                 destination = scope:actor.capital_province
-                on_arrival_event = los_interactions_peer_vassal.0001
+                scope:recipient.location = scope:actor.capital_province
+                on_arrival_event = los_invite_peer_vassals_event.0001
                 on_arrival_destinations = last
                 companion ?= scope:recipient.primary_spouse
                 return_trip = no

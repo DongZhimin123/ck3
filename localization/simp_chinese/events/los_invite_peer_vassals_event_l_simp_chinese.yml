@@ -1,5 +1,10 @@
 ﻿l_simp_chinese:
-  los_invite_peer_vassals_event.0002.t: "招待厅"
-  los_invite_peer_vassals_event.0002.d_0: "desc default"
-  los_invite_peer_vassals_event.0002.d_0: "desc 1"
- 
+  los_invite_peer_vassals_event.0002.t: "大驾光临"
+  los_invite_peer_vassals_event.0002.d_0: "　　黄昏，我眼瞧着[los_guest.GetTitledFirstName]到访的日子近了，便和庄园管家确认起有关招待事宜，像是：侍从的礼仪是否达标、客房的布置是否妥当、食物和酒水的准备是否充盈、行程的安排是否协商等。\n　　他正一一答复，我却听见渐渐传来的阵阵马蹄声，其中依稀交杂着辘辘车轮声和哗哗喧闹声。我猜客人应该是到了，便吩咐他赶紧按照之前安排好的规程办事。"
+  los_invite_peer_vassals_event.0002.d_1: "　　我对着镜子再一次确认好自己的着装和仪表，便直接前往大门迎接。"
+  los_invite_peer_vassals_event.0002.d_2: "　　我先是整理了仪容，离开办公室，穿越回廊。仆人们一个接一个地从偏房的休息室走出来，她们穿戴整洁，一律的白色制服，有条不紊地进行着最后的确认。露天庭院的中间有一座大理石雕刻的喷泉，石料是我从爱琴海的帕罗斯岛高价购得的，以其为中心，展开着鹅卵石铺设的环形十字小路，四相镶嵌着草坪，草坪中更点缀有鹅黄色的花卉。继续前进，穿过门廊，来到客厅，侍从们整整齐齐地V字排开，均低着头，双臂顺势垂在大腿中央，双手交叉，毕恭毕敬地等待着客人的光临。管家慢步来到我身旁，示意客人已经到大门外了。"
+  los_invite_peer_vassals_event.0002.o_1: "前去迎接"
+  
+  los_invite_peer_vassals_event.0003.t: "接风洗尘"
+  los_invite_peer_vassals_event.0003.d_0: "　　门外，[los_guest.GetTitledFirstName]夫妇停坐在马车里，周围分别由8名驾着骏马的骑士拱卫，紧随其后的是24名手持长枪的士兵，均穿着挂有亮片的华服，仪仗队的末端是两辆满载着礼品的马车。四面八方的人几乎都聚拢过来，想一睹客人的风采，毕竟如此大的阵仗搁在平时可不多见。大门两侧的卫兵瞥见我出来，这才立刻张罗好轿凳，搀扶着[los_guest.GetTitledFirstName]夫妇下御。\n　　由于，客人的突然到访，门外此时只有我一人迎接，我几乎什么都考虑到了，但是唯独忘记了提醒妻子。我按礼仪高调地赞美了客人的尊贵，和其夫人的美貌，请客人移驾。进门前，还不忘指示手下的人把事先准备好的零钱洒给围观的群众。"
+  los_invite_peer_vassals_event.0003.o_1: "我说："舟车劳顿，请先前去休息。""

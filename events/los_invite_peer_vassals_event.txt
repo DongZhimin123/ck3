@@ -3,42 +3,110 @@ namespace = los_invite_peer_vassals_event
 # 邀请同僚事件 0001~0002
 los_invite_peer_vassals_event.0001 = {
     hidden = yes
-    immediate = {
-        scope:los_guest = {
-            current_travel_plan ?= {
-                delay_travel_plan = { days = 30 }
-            }
-        }
 
-        scope:los_master = {
-            trigger_event = los_invite_peer_vassals_event.0002
+
+    immediate = {
+        if = {
+            limit = {
+                scope:los_guest.location = scope:los_host.capital_province
+            }
+
+            scope:los_guest = {
+                current_travel_plan ?= {
+                    delay_travel_plan = { days = 30 }
+                }
+            }
+
+            scope:los_host = {
+                trigger_event = los_invite_peer_vassals_event.0002
+            }
         }
     }
 }
 
-# 欢迎
+# 大驾光临
 los_invite_peer_vassals_event.0002 = {
     type = character_event
     title = los_invite_peer_vassals_event.0002.t
     theme = court
 
-    desc = {
-        triggered_desc = {
-            trigger = {
-                scope:los_master = {
+    immediate = {
+        scope:los_host = {
+            set_variable = {
+                name = los_recipient_grade
+                value = 0
+            }
+
+            if = {
+                limit = {
                     domicile ?= {
                         has_domicile_building_or_higher = reception_hall_01
                     }
                 }
+                change_variable = {
+                    name = los_recipient_grade
+                    add = 1
+                }
             }
+        }
+
+    }
+
+    desc = {
+        desc = los_invite_peer_vassals_event.0002.d_0
+
+        triggered_desc = {
+            trigger = { scope:los_host.var:los_recipient_grade = 1 }
             desc = los_invite_peer_vassals_event.0002.d_1
         }
-     
-        desc = los_invite_peer_vassals_event.0002.d_0
+
+        triggered_desc = {
+            trigger = { scope:los_host.var:los_recipient_grade = 2 }
+            desc = los_invite_peer_vassals_event.0002.d_2
+        }
+
     }
 
     left_portrait = {
-        character = scope:los_master
+        character = scope:los_host
+        animation = personality_honorable
+    }
+
+    right_portrait = {
+        character = scope:los_host.cp:councillor_chancellor
+        animation = thinking
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0002.o_1
+        trigger_event = los_invite_peer_vassals_event.0003
+    }
+
+    after = {
+        scope:los_host = {
+            remove_variable = los_recipient_grade
+        }
+    }
+}
+
+# 洗尘接风
+los_invite_peer_vassals_event.0003 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.0003.t
+    theme = friend_relation
+
+    override_background = {
+        reference = garden
+    }
+
+    immediate = {}
+
+    desc = {
+        desc = los_invite_peer_vassals_event.0003.d_0
+    }
+
+    left_portrait = {
+        character = scope:los_host
         animation = happiness
     }
 
@@ -47,8 +115,12 @@ los_invite_peer_vassals_event.0002 = {
         animation = happiness
     }
 
+    lower_right_portrait = {
+        character = scope:los_guest.primary_spouse
+    }
+
     option = {
-        name = moreinter_dating.700.a
-        trigger_event = moreinter_dating.675
+        name = los_invite_peer_vassals_event.0003.o_1
+        # trigger_event = los_invite_peer_vassals_event.0003
     }
 }
