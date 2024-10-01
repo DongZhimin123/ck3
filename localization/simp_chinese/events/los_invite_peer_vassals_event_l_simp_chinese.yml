@@ -1,11 +1,21 @@
 ﻿l_simp_chinese:
   los_invite_peer_vassals_event.0002.t: "大驾光临"
   los_invite_peer_vassals_event.0002.d_0: "　　黄昏，我眼瞧着[los_guest.GetTitledFirstName]到访的日子近了，便和庄园管家确认起有关招待事宜，像是：侍从的礼仪是否达标、客房的布置是否妥当、食物和酒水的准备是否充盈、行程的安排是否协商等。\n　　他正一一答复，我却听见渐渐传来的阵阵马蹄声，其中依稀交杂着辘辘车轮声和哗哗喧闹声。我猜客人应该是到了，便吩咐他赶紧按照之前安排好的规程办事。"
-  los_invite_peer_vassals_event.0002.d_1: "　　我对着镜子再一次确认好自己的着装和仪表，便直接前往大门迎接。"
-  los_invite_peer_vassals_event.0002.d_2: "　　我先是整理了仪容，离开办公室，穿越回廊。仆人们一个接一个地从偏房的休息室走出来，她们穿戴整洁，一律的白色制服，有条不紊地进行着最后的确认。露天庭院的中间有一座大理石雕刻的喷泉，石料是我从爱琴海的帕罗斯岛高价购得的，以其为中心，展开着鹅卵石铺设的环形十字小路，四相镶嵌着草坪，草坪中更点缀有鹅黄色的花卉。继续前进，穿过门廊，来到客厅，侍从们整整齐齐地V字排开，均低着头，双臂顺势垂在大腿中央，双手交叉，毕恭毕敬地等待着客人的光临。管家慢步来到我身旁，示意客人已经到大门外了。"
+  los_invite_peer_vassals_event.0002.ct_1: "　　我对着镜子再一次确认好自己的着装和仪表，便直接前往大门迎接。"
+  los_invite_peer_vassals_event.0002.ct_2: "　　[Glossary('我先是整理了仪容，离开办公室，穿越回廊。仆人们一个接一个地从偏房的休息室走出来，她们穿戴整洁，一律的白色制服，有条不紊地进行着最后的确认。露天庭院的中间有一座大理石雕刻的喷泉，石料是我从爱琴海的帕罗斯岛高价购得的，以其为中心，展开着鹅卵石铺设的环形十字小路，四相镶嵌着草坪，草坪中更点缀有鹅黄色的花卉。继续前进，穿过门廊，来到客厅，侍从们整整齐齐地V字排开，均低着头，双臂顺势垂在大腿中央，双手交叉，毕恭毕敬地等待着客人的光临。管家慢步来到我身旁，示意客人已经到大门外了。"', 'los_invite_peer_vassals_event.0002.ct_2_q')]"
+  los_invite_peer_vassals_event.0002.ct_2_q: "该文本解锁条件：拥有接待厅"
   los_invite_peer_vassals_event.0002.o_1: "前去迎接"
   
   los_invite_peer_vassals_event.0003.t: "接风洗尘"
   los_invite_peer_vassals_event.0003.d_0: "　　门外，[los_guest.GetTitledFirstName]夫妇停坐在马车里，周围分别由8名驾着骏马的骑士拱卫，紧随其后的是24名手持长枪的士兵，均穿着挂有亮片的华服，仪仗队的末端是两辆满载着礼品的马车。四面八方的人几乎都聚拢过来，想一睹客人的风采，毕竟如此大的阵仗搁在平时可不多见。大门两侧的卫兵瞥见我出来，这才立刻张罗好轿凳，搀扶着[los_guest.GetTitledFirstName]夫妇下御。\n　　由于，客人的突然到访，门外此时只有我一人迎接，我几乎什么都考虑到了，但是唯独忘记了提醒妻子。我按礼仪高调地赞美了客人的尊贵，和其夫人的美貌，请客人移驾。进门前，还不忘指示手下的人把事先准备好的零钱洒给围观的群众。"
   los_invite_peer_vassals_event.0003.o_1: "我说：“舟车劳顿，请先稍作休息。”"
-  los_invite_peer_vassals_event.0003.o_1_ct: "我得去监办一下晚上的宴会。"
+  los_invite_peer_vassals_event.0003.o_1_ct_1: "#color_green 精美的礼物 #!"
+  los_invite_peer_vassals_event.0003.o_1_ct_2: "#color_green 盛大的排场 #!"
+
+  los_invite_peer_vassals_event.0004.t: "门前寒暄"
+  los_invite_peer_vassals_event.0004.d_0: "　　他性格外放，举手投足之间洋溢着兴奋，还没等我反应过来，便一把将我揽到身前，热情地和我拥抱，高度评价了我们的盛情款待，对于我们提供的住宿表示非常满意。"
+  los_invite_peer_vassals_event.0004.d_1: "　　他的表情之中难掩失望之色，我确信这已经是我们所能提供的最好的房间。室内的装潢内饰几乎一比一复刻了我的卧室，甚至搭配有金线织成填有天鹅绒的寝具，床头柜前的花瓶里插着每天清晨送来的花束。即便如此，却还是没讨来客人的半点欢喜，他象征性地肯定了我们的工作，转头就扎入了房间内。"
+  los_invite_peer_vassals_event.0004.o_1: "我说：“晚上见。”"
+
+  los_invite_peer_vassals_event.0004.o_1_ct_1: "#color_green 我想这开了一个好头 #!"
+  los_invite_peer_vassals_event.0004.o_1_ct_2: "#color_red 我想这开了一个坏头 #!"

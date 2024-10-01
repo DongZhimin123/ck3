@@ -38,6 +38,7 @@ los_invite_peer_vassals_interaction = {
         scope:recipient = {
             AND = {
                 los_is_avaliable_male = yes
+                is_independent_ruler = no
                 exists = primary_spouse
                 NOT = { has_relation_rival = scope:actor }
                 NOT = { has_relation_nemesis = scope:actor }
