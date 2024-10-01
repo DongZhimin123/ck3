@@ -1,0 +1,9 @@
+﻿# texture = { # Governors
+#     reference = "event_scenes/ep3_relaxing_room.dds"
+# 
+#     trigger = {
+#         this ?= scope:los_guest
+# 
+#         this.var:los_guest_in_resting_room ?= 1
+#     }
+# }

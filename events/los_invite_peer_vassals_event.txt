@@ -1,9 +1,31 @@
 namespace = los_invite_peer_vassals_event
 
-# 邀请同僚事件 0001~0002
-los_invite_peer_vassals_event.0001 = {
+# 邀请同僚事件 结束
+los_invite_peer_vassals_event.9999 = {
     hidden = yes
 
+    trigger = {
+        OR = {
+            scope:los_guest = {
+                is_alive = no
+            }
+
+            scope:los_host.primary_spouse = {
+                is_alive = no
+            }
+        }
+
+    }
+
+    immediate = {
+        clear_saved_scope = los_guest
+        clear_saved_scope = los_host
+    }
+}
+
+# 邀请同僚事件 0001~0005
+los_invite_peer_vassals_event.0001 = {
+    hidden = yes
 
     immediate = {
         if = {
@@ -30,41 +52,37 @@ los_invite_peer_vassals_event.0002 = {
     title = los_invite_peer_vassals_event.0002.t
     theme = court
 
+    window = visit_settlement_window
+
     immediate = {
         scope:los_host = {
             set_variable = {
-                name = los_recipient_grade
-                value = 0
+                name = los_recipient_rank
+                value = 1
             }
 
-            if = {
-                limit = {
-                    domicile ?= {
-                        has_domicile_building_or_higher = reception_hall_01
-                    }
+
+        }
+
+        if = {
+            limit = {
+                scope:los_host.domicile ?= {
+                    has_domicile_building_or_higher = reception_hall_01
                 }
+            }
+            scope:los_host = {
                 change_variable = {
-                    name = los_recipient_grade
+                    name = los_recipient_rank
                     add = 1
                 }
             }
         }
 
+
     }
 
     desc = {
         desc = los_invite_peer_vassals_event.0002.d_0
-
-        triggered_desc = {
-            trigger = { scope:los_host.var:los_recipient_grade = 1 }
-            desc = los_invite_peer_vassals_event.0002.d_1
-        }
-
-        triggered_desc = {
-            trigger = { scope:los_host.var:los_recipient_grade = 2 }
-            desc = los_invite_peer_vassals_event.0002.d_2
-        }
-
     }
 
     left_portrait = {
@@ -79,12 +97,31 @@ los_invite_peer_vassals_event.0002 = {
 
     option = {
         name = los_invite_peer_vassals_event.0002.o_1
+
+        if = {
+            limit = {
+                AND = {
+                    scope:los_host = {
+                        has_variable = los_recipient_rank
+                        var:los_recipient_rank = 2
+                    }
+                }
+            }
+            custom_tooltip = {
+                text = los_invite_peer_vassals_event.0002.ct_2
+            }
+        } else = {
+            custom_tooltip = {
+                text = los_invite_peer_vassals_event.0002.ct_1
+            }
+        }
+
         trigger_event = los_invite_peer_vassals_event.0003
     }
 
     after = {
         scope:los_host = {
-            remove_variable = los_recipient_grade
+            remove_variable = los_recipient_rank
         }
     }
 }
@@ -95,8 +132,10 @@ los_invite_peer_vassals_event.0003 = {
     title = los_invite_peer_vassals_event.0003.t
     theme = friend_relation
 
+    window = visit_settlement_window
+
     override_background = {
-        reference = garden
+        reference = tour_arrival
     }
 
     immediate = {}
@@ -110,6 +149,7 @@ los_invite_peer_vassals_event.0003 = {
         animation = happiness
     }
 
+
     right_portrait = {
         character = scope:los_guest
         animation = happiness
@@ -121,6 +161,129 @@ los_invite_peer_vassals_event.0003 = {
 
     option = {
         name = los_invite_peer_vassals_event.0003.o_1
-        # trigger_event = los_invite_peer_vassals_event.0003
+        custom_tooltip = los_invite_peer_vassals_event.0003.o_1_ct_1
+        scope:los_host = {
+            add_gold = 50
+            add_county_modifier = {
+                modifier = leftover_food_giveaway_modifier
+                years = 5
+            }
+        }
+
+        custom_tooltip = los_invite_peer_vassals_event.0003.o_1_ct_2
+        scope:los_guest = {
+            add_prestige = 150
+        }
+
+        trigger_event = los_invite_peer_vassals_event.0004
+    }
+
+    after = {}
+}
+
+# 门前寒暄
+los_invite_peer_vassals_event.0004 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.0004.t
+    theme = friend_relation
+
+    window = visit_settlement_window
+
+    override_background = {
+        reference = throne_room
+    }
+
+    immediate = {
+        if = {
+            limit = { scope:los_guest = { has_trait = arrogant }}
+
+            scope:los_host = {
+                set_variable = {
+                    name = los_success_flag
+                    value = flag:failure
+                }
+            }
+        } else = {
+            scope:los_host = {
+                set_variable = {
+                    name = los_success_flag
+                    value = flag:success
+                }
+            }
+        }
+    }
+
+    desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = { scope:los_host = { var:los_success_flag = flag:success }  }
+                desc = los_invite_peer_vassals_event.0004.d_0
+            }
+
+            desc = los_invite_peer_vassals_event.0004.d_1
+        }
+    }
+
+
+    left_portrait = {
+        character = scope:los_host
+
+        triggered_animation = {
+            trigger = {
+                scope:los_host = { var:los_success_flag = flag:success }
+            }
+            animation = happiness
+        }
+        triggered_animation = {
+            trigger = {
+                scope:los_host = { var:los_success_flag = flag:failure }
+            }
+            animation = worry
+        }
+
+    }
+
+    right_portrait = {
+        character = scope:los_guest
+
+        triggered_animation = {
+            trigger = {
+                scope:los_host = { var:los_success_flag = flag:success }
+            }
+            animation = happiness
+        }
+        triggered_animation = {
+            trigger = {
+                scope:los_host = { var:los_success_flag = flag:failure }
+            }
+            animation = dismissal
+        }
+    }
+
+    lower_right_portrait = {
+        character = scope:los_guest.primary_spouse
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0004.o_1
+
+        if = {
+            limit = { scope:los_host = { var:los_success_flag = flag:success } }
+            custom_tooltip = {
+                text = los_invite_peer_vassals_event.0004.o_1_ct_1
+            }
+        } else = {
+            custom_tooltip = {
+                text = los_invite_peer_vassals_event.0004.o_1_ct_2
+            }
+        }
+
+        trigger_event = los_invite_peer_vassals_event.0005
+    }
+
+    after = {
+        scope:los_host = {
+            remove_variable = los_success_flag
+        }
     }
 }
