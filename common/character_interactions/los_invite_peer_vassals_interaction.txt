@@ -9,7 +9,7 @@ los_invite_peer_vassals_interaction = {
 
     ignores_pending_interaction_block = yes
 
-    interface_priority = 150
+    interface_priority = 200
 
     greeting = positive
 
@@ -32,7 +32,7 @@ los_invite_peer_vassals_interaction = {
             AND = {
                 los_is_avaliable_male = yes
                 exists = primary_spouse
-                # NOT = { has_character_modifier = los_preparation_modifier }
+                NOT = { has_character_modifier = los_preparation_modifier }
             }
         }
         scope:recipient = {
@@ -57,6 +57,10 @@ los_invite_peer_vassals_interaction = {
         scope:actor = {
             save_scope_as = los_host
 
+            primary_spouse = {
+                save_scope_as = los_host_wife
+            }
+
             send_interface_message = {
                 type = event_activity_good_with_text
                 title = los_invite_peer_vassals_interaction_accept_message.t
@@ -73,9 +77,13 @@ los_invite_peer_vassals_interaction = {
 
         }
 
+
         scope:recipient = {
             save_scope_as = los_guest
 
+            primary_spouse = {
+                save_scope_as = los_guest_wife
+            }
 
             start_travel_plan = {
                 destination = scope:actor.capital_province
@@ -86,5 +94,6 @@ los_invite_peer_vassals_interaction = {
                 return_trip = no
             }
         }
+
     }
 }
