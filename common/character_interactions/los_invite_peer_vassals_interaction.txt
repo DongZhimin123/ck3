@@ -32,7 +32,7 @@ los_invite_peer_vassals_interaction = {
             AND = {
                 los_is_avaliable_male = yes
                 exists = primary_spouse
-                NOT = { has_character_modifier = los_preparation_modifier }
+                #NOT = { has_character_modifier = los_preparation_modifier }
             }
         }
         scope:recipient = {
