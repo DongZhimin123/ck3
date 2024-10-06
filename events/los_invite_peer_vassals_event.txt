@@ -1,3 +1,5 @@
+@los_visit_days = 60
+
 namespace = los_invite_peer_vassals_event
 
 # 邀请同僚事件 结束
@@ -23,6 +25,8 @@ los_invite_peer_vassals_event.9999 = {
     }
 }
 
+
+
 # 邀请同僚事件 0001~0005
 los_invite_peer_vassals_event.0001 = {
     hidden = yes
@@ -35,7 +39,7 @@ los_invite_peer_vassals_event.0001 = {
 
             scope:los_guest = {
                 current_travel_plan ?= {
-                    delay_travel_plan = { days = 30 }
+                    delay_travel_plan = { days = @los_visit_days }
                 }
             }
 
@@ -45,7 +49,6 @@ los_invite_peer_vassals_event.0001 = {
         }
     }
 }
-
 # 大驾光临
 los_invite_peer_vassals_event.0002 = {
     type = character_event
@@ -92,7 +95,7 @@ los_invite_peer_vassals_event.0002 = {
 
     right_portrait = {
         character = scope:los_host.cp:councillor_chancellor
-        animation = thinking
+        animation = steward
     }
 
     option = {
@@ -165,7 +168,6 @@ los_invite_peer_vassals_event.0003 = {
         scope:los_host = {
             add_gold = 50
             add_county_modifier = {
-                modifier = leftover_food_giveaway_modifier
                 years = 5
             }
         }
@@ -180,7 +182,6 @@ los_invite_peer_vassals_event.0003 = {
 
     after = {}
 }
-
 # 门前寒暄
 los_invite_peer_vassals_event.0004 = {
     type = character_event
@@ -250,7 +251,7 @@ los_invite_peer_vassals_event.0004 = {
             trigger = {
                 scope:los_host = { var:los_success_flag = flag:success }
             }
-            animation = happiness
+            animation = admiration
         }
         triggered_animation = {
             trigger = {
@@ -260,15 +261,13 @@ los_invite_peer_vassals_event.0004 = {
         }
     }
 
-    lower_right_portrait = {
-        character = scope:los_guest.primary_spouse
-    }
-
     option = {
         name = los_invite_peer_vassals_event.0004.o_1
 
         if = {
-            limit = { scope:los_host = { var:los_success_flag = flag:success } }
+            limit = {
+                scope:los_host = { var:los_success_flag = flag:success }
+            }
             custom_tooltip = {
                 text = los_invite_peer_vassals_event.0004.o_1_ct_1
             }
@@ -286,4 +285,613 @@ los_invite_peer_vassals_event.0004 = {
             remove_variable = los_success_flag
         }
     }
+}
+
+# 意外之喜
+los_invite_peer_vassals_event.0005 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.0005.t
+    theme = romance_scheme
+
+    window = visit_settlement_window
+
+    override_background = { reference = corridor_day }
+
+    immediate = {}
+
+    desc = los_invite_peer_vassals_event.0005.d_0
+
+    right_portrait = {
+        character = scope:los_guest
+        animation =
+    }
+
+    lower_right_portrait = {
+        character = scope:los_host
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0005.o_1
+
+        trigger_event = los_invite_peer_vassals_event.0006
+    }
+
+    after = {}
+}
+# 春光外泄
+los_invite_peer_vassals_event.0006 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.0006.t
+
+    theme = romance_scheme
+    override_background  = { reference = bath_house }
+
+    window = visit_settlement_window
+
+    immediate = {}
+
+    desc = los_invite_peer_vassals_event.0006.d_0
+
+    right_portrait = {
+        character = scope:los_host.primary_spouse
+        triggered_outfit = {
+            remove_default_outfit = no
+            outfit_tags = { no_clothes }
+        }
+    }
+
+    lower_left_portrait = {
+        character = scope:los_guest
+    }
+
+    lower_right_portrait = {
+        character = scope:los_host
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0006.o_1
+
+        trigger_event = los_invite_peer_vassals_event.0007
+    }
+
+    after = {}
+}
+# 不情之情
+los_invite_peer_vassals_event.0007 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.0007.t
+    theme = romance_scheme
+
+    override_background  = { reference = corridor_day }
+
+    window = visit_settlement_window
+
+    immediate = {}
+
+    desc = los_invite_peer_vassals_event.0007.d_0
+
+    left_portrait = {
+        character = scope:los_guest
+        animation = paranoia
+    }
+
+    right_portrait = {
+        character = scope:los_host
+        animation = thinking
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0007.o_0
+
+        trigger = { yes = no }
+
+        show_as_unavailable = { always = yes }
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0007.o_1
+
+        trigger_event = los_invite_peer_vassals_event.0008
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0007.o_2
+
+        trigger_event = los_invite_peer_vassals_event.9998
+    }
+
+    after = {}
+}
+# 命运转折
+los_invite_peer_vassals_event.0008 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.0008.t
+    theme = diplomacy
+
+    override_background  = { reference = bedchamber }
+
+    window = visit_settlement_window
+
+    immediate = {}
+
+    desc = los_invite_peer_vassals_event.0008.d_0
+
+    left_portrait = {
+        character = scope:los_host
+        animation = worry
+    }
+
+    right_portrait = {
+        character = scope:los_host.primary_spouse
+        animation = ecstasy
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0008.o_0
+
+        trigger_event = los_invite_peer_vassals_event.0009
+    }
+
+    after = {}
+}
+# 急转直下
+los_invite_peer_vassals_event.0009 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.0009.t
+    theme = diplomacy
+
+    override_background  = { reference = bedchamber }
+
+    window = visit_settlement_window
+
+    immediate = {}
+
+    desc = los_invite_peer_vassals_event.0009.d_0
+
+    left_portrait = {
+        character = scope:los_host
+        animation = beg
+    }
+
+    right_portrait = {
+        character = scope:los_host.primary_spouse
+        animation = crying
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0009.o_0
+
+        trigger_event = los_invite_peer_vassals_event.0010
+    }
+
+    after = {}
+}
+# 接受提案
+los_invite_peer_vassals_event.0010 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.0010.t
+    theme = diplomacy
+
+    override_background  = { reference = bedchamber }
+
+    window = visit_settlement_window
+
+    immediate = {}
+
+    desc = los_invite_peer_vassals_event.0010.d_0
+
+    left_portrait = {
+        character = scope:los_host
+        animation = beg
+    }
+
+    right_portrait = {
+        character = scope:los_host.primary_spouse
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0010.o_0
+
+        trigger_event = los_invite_peer_vassals_event.0011
+    }
+
+    after = {
+        scope:los_host.primary_spouse = {
+            add_character_flag = {
+                flag = los_maid
+                days = @los_visit_days
+            }
+        }
+    }
+}
+# 盛大开幕
+los_invite_peer_vassals_event.0011 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.0011.t
+    theme = feast_activity
+
+    window = visit_settlement_window
+
+    desc = los_invite_peer_vassals_event.0011.d_0
+
+    center_portrait = {
+        character = scope:los_host.primary_spouse
+        animation = personality_compassionate
+        triggered_outfit = {
+            trigger = {
+                scope:los_host.primary_spouse = {
+                    has_character_flag = los_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_maid_outfit }
+        }
+    }
+
+    left_portrait = {
+        character = scope:los_host
+        animation = flirtation
+    }
+
+    right_portrait = {
+        character = scope:los_guest
+        animation = eccentric
+    }
+
+    lower_right_portrait = {
+        character = scope:los_guest.primary_spouse
+    }
+
+    lower_center_portrait = {
+        character = scope:los_host.cp:councillor_chancellor
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0011.o_0
+
+        trigger_event = los_invite_peer_vassals_event.0012
+    }
+}
+
+# 翩若惊鸿
+los_invite_peer_vassals_event.0012 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.0012.t
+    theme = feast_activity
+
+    window = visit_settlement_window
+
+    immediate = {
+        create_character = {
+            age = { 18 40 }
+            random_traits = yes
+            gender_female_chance = 100
+            dynasty = none
+            location = scope:los_host.capital_province
+            culture = scope:los_host.capital_province.culture
+            faith = scope:los_host.capital_province.faith
+            intrigue = {
+                min_template_decent_skill
+                max_template_decent_skill
+            }
+            save_scope_as = los_lower_maid_1
+        }
+
+        scope:los_lower_maid_1 = {
+            add_character_flag = los_lower_maid
+        }
+
+        create_character = {
+            age = { 18 40 }
+            random_traits = yes
+            gender_female_chance = 100
+            dynasty = none
+            location = scope:los_host.capital_province
+            culture = scope:los_host.capital_province.culture
+            faith = scope:los_host.capital_province.faith
+            intrigue = {
+                min_template_decent_skill
+                max_template_decent_skill
+            }
+            save_scope_as = los_lower_maid_2
+        }
+
+        scope:los_lower_maid_2 = {
+            add_character_flag = los_lower_maid
+        }
+
+        create_character = {
+            age = { 18 40 }
+            random_traits = yes
+            gender_female_chance = 100
+            dynasty = none
+            location = scope:los_host.capital_province
+            culture = scope:los_host.capital_province.culture
+            faith = scope:los_host.capital_province.faith
+            intrigue = {
+                min_template_decent_skill
+                max_template_decent_skill
+            }
+            save_scope_as = los_lower_maid_3
+        }
+
+        create_character = {
+            age = { 18 40 }
+            random_traits = yes
+            gender_female_chance = 100
+            dynasty = none
+            location = scope:los_host.capital_province
+            culture = scope:los_host.capital_province.culture
+            faith = scope:los_host.capital_province.faith
+            intrigue = {
+                min_template_decent_skill
+                max_template_decent_skill
+            }
+            save_scope_as = los_lower_maid_4
+        }
+
+
+    }
+
+    desc = los_invite_peer_vassals_event.0012.d_0
+
+    center_portrait = {
+        character = scope:los_host.primary_spouse
+        animation = dancing
+        triggered_outfit = {
+            trigger = {
+                scope:los_host.primary_spouse = {
+                    has_character_flag = los_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_dancer_outfit }
+        }
+    }
+
+    left_portrait = {
+        character = scope:los_lower_maid_1
+        animation = dancing
+        triggered_outfit = {
+            trigger = {
+                scope:los_lower_maid_1 = {
+                    has_character_flag = los_lower_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_lower_dancer_outfit }
+        }
+    }
+
+    right_portrait = {
+        character = scope:los_lower_maid_2
+        animation = dancing
+        triggered_outfit = {
+            trigger = {
+                scope:los_lower_maid_2 = {
+                    has_character_flag = los_lower_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_lower_dancer_outfit }
+        }
+    }
+
+    lower_right_portrait = {
+        character = scope:los_lower_maid_3
+    }
+
+    lower_right_portrait = {
+        character = scope:los_lower_maid_4
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0012.o_0
+
+        trigger_event = los_invite_peer_vassals_event.0013
+    }
+}
+
+# 完美闭幕
+los_invite_peer_vassals_event.0013 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.0013.t
+    theme = feast_activity
+
+    window = visit_settlement_window
+
+    immediate = { }
+
+    desc = los_invite_peer_vassals_event.0013.d_0
+
+    right_portrait = {
+        character = scope:los_host.primary_spouse
+        animation = shame
+        triggered_outfit = {
+            trigger = {
+                scope:los_host.primary_spouse = {
+                    has_character_flag = los_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_dancer_outfit }
+        }
+    }
+
+    lower_left_portrait = {
+        character = scope:los_lower_maid_1
+        triggered_outfit = {
+            trigger = {
+                scope:los_lower_maid_1 = {
+                    has_character_flag = los_lower_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_lower_dancer_outfit }
+        }
+    }
+
+    lower_right_portrait = {
+        character = scope:los_lower_maid_2
+        triggered_outfit = {
+            trigger = {
+                scope:los_lower_maid_2 = {
+                    has_character_flag = los_lower_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_lower_dancer_outfit }
+        }
+    }
+
+    center_portrait = {
+        character = scope:los_guest
+        animation = toast_goblet
+
+    }
+
+    left_portrait = {
+        character = scope:los_host
+        animation = toast
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0013.o_0
+
+        trigger_event = los_invite_peer_vassals_event.0014
+    }
+
+    after = {
+        hidden_effect = {
+            scope:los_lower_maid_1 = {
+                death = {
+                    death_reason = death_vanished
+                }
+            }
+            scope:los_lower_maid_2 = {
+                death = {
+                    death_reason = death_vanished
+                }
+            }
+            scope:los_lower_maid_3 = {
+                death = {
+                    death_reason = death_vanished
+                }
+            }
+            scope:los_lower_maid_4 = {
+                death = {
+                    death_reason = death_vanished
+                }
+            }
+        }
+    }
+}
+
+# 漫长等待
+los_invite_peer_vassals_event.9998 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.9998.t
+    theme = feast_activity
+
+    window = visit_settlement_window
+
+    immediate = {}
+
+    desc = los_invite_peer_vassals_event.9998.d_0
+
+    left_portrait = {
+        character = scope:los_host.primary_spouse
+    }
+
+    center_portrait = {
+        character = scope:los_host
+        animation = worry
+    }
+
+    right_portrait = {
+        character = scope:los_host.cp:councillor_chancellor
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.9998.o_0
+
+        trigger_event = los_invite_peer_vassals_event.9997
+    }
+
+    after = {}
+}
+
+# 闷闷不乐
+los_invite_peer_vassals_event.9997 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.9997.t
+    theme = feast_activity
+
+    window = visit_settlement_window
+
+    immediate = {}
+
+    desc = los_invite_peer_vassals_event.9997.d_0
+
+    left_portrait = {
+        character = scope:los_host.primary_spouse
+        animation = drink_goblet
+    }
+
+    center_portrait = {
+        character = scope:los_host
+        animation = drink_goblet
+    }
+
+    right_portrait = {
+        character = scope:los_guest
+        animation = grief
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.9997.o_0
+
+        trigger_event = {
+            id = los_invite_peer_vassals_event.9996
+            days = 3
+        }
+    }
+
+    after = {}
+}
+
+# 闭门不出
+los_invite_peer_vassals_event.9996 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.9996.t
+    theme = cultural_festival
+
+    window = visit_settlement_window
+
+    override_background = { reference = courtyard }
+
+    immediate = {}
+
+    desc = los_invite_peer_vassals_event.9996.d_0
+
+    left_portrait = {
+        character = scope:los_host.primary_spouse
+        animation = happiness
+    }
+
+    center_portrait = {
+        character = scope:los_host
+    }
+
+    right_portrait = {
+        character = scope:los_guest.primary_spouse
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.9996.o_0
+
+        trigger_event = los_invite_peer_vassals_event.9995
+    }
+
+    after = {}
 }

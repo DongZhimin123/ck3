@@ -1,21 +1,74 @@
 ﻿l_simp_chinese:
   los_invite_peer_vassals_event.0002.t: "大驾光临"
-  los_invite_peer_vassals_event.0002.d_0: "　　黄昏，我眼瞧着[los_guest.GetTitledFirstName]到访的日子近了，便和庄园管家确认起有关招待事宜，像是：侍从的礼仪是否达标、客房的布置是否妥当、食物和酒水的准备是否充盈、行程的安排是否协商等。\n　　他正一一答复，我却听见渐渐传来的阵阵马蹄声，其中依稀交杂着辘辘车轮声和哗哗喧闹声。我猜客人应该是到了，便吩咐他赶紧按照之前安排好的规程办事。"
+  los_invite_peer_vassals_event.0002.d_0: "　　今日黄昏，我眼瞧着[los_guest.GetTitledFirstName]到访的日子近了，便和庄园管家确认起招待事宜，像是：侍从的礼仪是否达标、客房的布置是否妥当、食物和酒水的准备是否充足等。\n　　他正一一答复，我却听见渐渐传来的马蹄声，其中依稀交杂着辘辘车轮声和哗哗喧闹声。我猜客人应该是到了，便吩咐他赶紧按照之前安排好的规程办事。"
   los_invite_peer_vassals_event.0002.ct_1: "　　我对着镜子再一次确认好自己的着装和仪表，便直接前往大门迎接。"
-  los_invite_peer_vassals_event.0002.ct_2: "　　[Glossary('我先是整理了仪容，离开办公室，穿越回廊。仆人们一个接一个地从偏房的休息室走出来，她们穿戴整洁，一律的白色制服，有条不紊地进行着最后的确认。露天庭院的中间有一座大理石雕刻的喷泉，石料是我从爱琴海的帕罗斯岛高价购得的，以其为中心，展开着鹅卵石铺设的环形十字小路，四相镶嵌着草坪，草坪中更点缀有鹅黄色的花卉。继续前进，穿过门廊，来到客厅，侍从们整整齐齐地V字排开，均低着头，双臂顺势垂在大腿中央，双手交叉，毕恭毕敬地等待着客人的光临。管家慢步来到我身旁，示意客人已经到大门外了。"', 'los_invite_peer_vassals_event.0002.ct_2_q')]"
+  los_invite_peer_vassals_event.0002.ct_2: "　　[Glossary('我先是整理了仪容，离开办公室，穿越回廊。仆人们一个接一个地从偏房的休息室走出来，她们穿戴整洁，一律的白色制服，有条不紊地进行着最后的确认。露天庭院的中间有一座大理石雕刻的喷泉，石料是我从爱琴海的帕罗斯岛高价购得的，以其为中心，朝四面展开着鹅卵石投筑的环形十字小路，四相镶嵌着草坪，草坪中更点缀有鹅黄色的花卉。继续前进，穿过门廊，来到客厅，侍从们整整齐齐地V字排开，均低着头，双臂顺势垂在大腿中央，双手交叉，毕恭毕敬地等待着客人的光临。管家慢步来到我身旁，示意客人已经到大门外了。"', 'los_invite_peer_vassals_event.0002.ct_2_q')]"
   los_invite_peer_vassals_event.0002.ct_2_q: "该文本解锁条件：拥有接待厅"
   los_invite_peer_vassals_event.0002.o_1: "前去迎接"
   
   los_invite_peer_vassals_event.0003.t: "接风洗尘"
-  los_invite_peer_vassals_event.0003.d_0: "　　门外，[los_guest.GetTitledFirstName]夫妇停坐在马车里，周围分别由8名驾着骏马的骑士拱卫，紧随其后的是24名手持长枪的士兵，均穿着挂有亮片的华服，仪仗队的末端是两辆满载着礼品的马车。四面八方的人几乎都聚拢过来，想一睹客人的风采，毕竟如此大的阵仗搁在平时可不多见。大门两侧的卫兵瞥见我出来，这才立刻张罗好轿凳，搀扶着[los_guest.GetTitledFirstName]夫妇下御。\n　　由于，客人的突然到访，门外此时只有我一人迎接，我几乎什么都考虑到了，但是唯独忘记了提醒妻子。我按礼仪高调地赞美了客人的尊贵，和其夫人的美貌，请客人移驾。进门前，还不忘指示手下的人把事先准备好的零钱洒给围观的群众。"
-  los_invite_peer_vassals_event.0003.o_1: "我说：“舟车劳顿，请先稍作休息。”"
+  los_invite_peer_vassals_event.0003.d_0: "　　门外，[los_guest.GetTitledFirstName]夫妇停坐在马车里，周围分别由8名驾着骏马的骑士拱卫，紧随其后的是24名手持长枪的士兵，均穿着挂有亮片的华服，仪仗队的末端是两辆满载着礼品的马车。四面八方的人几乎都聚拢过来，想一睹客人的风采，毕竟如此大的阵仗搁在平时可不多见。大门两侧的卫兵瞥见我出来，这才立刻张罗好轿凳，搀扶着[los_guest.GetTitledFirstName]夫妇下御。\n　　由于，客人的突然到访，门外此时只有我一人迎接，甚至忘记了提醒妻子[los_host_wife.GetFirstName]。我按礼仪高调地赞美了客人的尊贵，和尊夫人的美貌，请客人移驾别馆。进门前，还不忘指示手下的人把事先准备好的零钱洒给围观的群众。"
+  los_invite_peer_vassals_event.0003.o_1: "我说：“#EMP 舟车劳顿了，请先去客房稍作休憩。#!”"
   los_invite_peer_vassals_event.0003.o_1_ct_1: "#color_green 精美的礼物 #!"
   los_invite_peer_vassals_event.0003.o_1_ct_2: "#color_green 盛大的排场 #!"
 
   los_invite_peer_vassals_event.0004.t: "门前寒暄"
-  los_invite_peer_vassals_event.0004.d_0: "　　他性格外放，举手投足之间洋溢着兴奋，还没等我反应过来，便一把将我揽到身前，热情地和我拥抱，高度评价了我们的盛情款待，对于我们提供的住宿表示非常满意。"
-  los_invite_peer_vassals_event.0004.d_1: "　　他的表情之中难掩失望之色，我确信这已经是我们所能提供的最好的房间。室内的装潢内饰几乎一比一复刻了我的卧室，甚至搭配有金线织成填有天鹅绒的寝具，床头柜前的花瓶里插着每天清晨送来的花束。即便如此，却还是没讨来客人的半点欢喜，他象征性地肯定了我们的工作，转头就扎入了房间内。"
-  los_invite_peer_vassals_event.0004.o_1: "我说：“晚上见。”"
+  los_invite_peer_vassals_event.0004.d_0: "　　我来到客房处，仆人们正陆陆续续地将行李搬进房间里。我没想到他性格如此#P 外放#!，举手投足之间洋溢着难以抑制的激情，看我走近，不等我反应，便一把将我揽到身前，热情地和我拥抱，高度评价我们的接待工作，对于我们提供的住宿条件表示非常满意。\n　　我感到#P 非常高兴#!，一直以来的辛苦总算没有白费，但是客人过于热情的举动还是让我感到不太自在，不过这也不算特别大的麻烦，接下来我们还有充足的日子相互适应。"
+  los_invite_peer_vassals_event.0004.d_1: "　　（未完善）我来到客房处，仆人们正陆陆续续地将行李搬进房间里。他的表情之中难掩失望之色，我确信这已经是我们所能提供的最好的房间。室内的装潢内饰几乎一比一复刻了我的卧室，甚至搭配有金线织成填有天鹅绒的寝具，床头柜前的花瓶里插着每天清晨送来的花束。即便如此，却还是没讨来客人的半点欢喜，他象征性地肯定了我们的工作，转头就扎入了房间内。"
+  los_invite_peer_vassals_event.0004.o_1: "依依惜别"
 
   los_invite_peer_vassals_event.0004.o_1_ct_1: "#color_green 我想这开了一个好头 #!"
   los_invite_peer_vassals_event.0004.o_1_ct_2: "#color_red 我想这开了一个坏头 #!"
+
+  los_invite_peer_vassals_event.0005.t: "意外之喜"
+  los_invite_peer_vassals_event.0005.d_0: "　　我吩咐仆人去提醒一下主母，客人已经到了。便去着手督办#V 今晚的宴会#!，我穿梭于仓库，厨房和宴会厅，忙的可谓是不可开交。就在我兜兜转转，路过仆人休息室时，却发现了[los_guest.GetTitledFirstName]的身影，他倚靠在一扇挂有门帘的房前，目不转睛地注视着房内，热腾腾的水汽正顺着他手扒开的缝隙飘散出来。"
+  los_invite_peer_vassals_event.0005.o_1: "他在干什么？"
+
+  los_invite_peer_vassals_event.0006.t: "春光外泄"
+  los_invite_peer_vassals_event.0006.d_0: "　　我轻手轻脚地溜到他的身后，他正看地入迷，竟没有发觉我的动静。我顺着他的目光望去，屋内是间澡堂，此时正有一个#V 女人#!在独自洗澡，#V 她有着修长的四肢和婀娜的体态，轻柔的纤手划过肌肤带掉盖在身上的最后一件衣物，露出挺拔的双峰和饱满的后庭，诱人的酮体在朦胧的雾气中若影若现。只见，她高抬左腿，可人的小脚搭在面前的台阶上，弯下腰用手抚摸青葱的细趾，又伸长脖颈，脑袋轻柔地垂放在左肩，右臂高悬装有热汤的水瓢，弯手缓缓浇洒，涓涓细流顺着凹凸有致的脉络，一直坠落山谷......#!\n　　就在我细细打量的时候，才发现屋内的#N 不是别人#!，正是我的妻子[los_host_wife.GetFirstName]。"
+  los_invite_peer_vassals_event.0006.o_1: "[Glossary('我顿感疑惑', 'los_invite_peer_vassals_event.0006.o_1_q_0')]"
+  los_invite_peer_vassals_event.0006.o_1_q_0: "她不应该在主楼的卧室吗？怎么会在这儿！"
+
+  los_invite_peer_vassals_event.0007.t: "不情之请"
+  los_invite_peer_vassals_event.0007.d_0: "　　[los_guest.GetTitledFirstName]也发现了我，他先是一惊，但很快镇定下来并把我拉到一旁，对自己刚刚的行为毫不掩饰，伴着幽默的口吻说：“#EMP 没想到，贵府中即便是#N 低贱的仆人#! 竟都是如此标致的美人。#!”\n　　“#EMP 我不得不向您承认并忏悔#!”他顿了顿，继续说：“#EMP 您是当地有名的领主和虔诚的教徒，这我都知道，但我似乎无可救药地#N 恋慕#!上了您的仆人......我当然知道更进一步是不可能的，但我试图向您提出一个可能逾矩的请求，#color_yellow 您是否能让她作为我接下来几个月的侍女#!？我可以开出一个您无法拒绝的优厚条件！[Glossary('可怜的女孩，您或许可以先为她换一身干净点的衣裳。', 'los_invite_peer_vassals_event.0007.d_0_q_0')]#!” \n　　#v 我是否该告诉他真相？#!"
+  los_invite_peer_vassals_event.0007.d_0_q_0: "他似乎把其他人随意丢弃在池边的脏衣服认作了我妻子的衣服。"
+  los_invite_peer_vassals_event.0007.o_0: "#color_yellow 以下涉及关键分支，请慎重选择。#!"
+  los_invite_peer_vassals_event.0007.o_1: "#color_red 我可以考虑#!"
+  los_invite_peer_vassals_event.0007.o_2: "#color_green 我必须拒绝#!"
+
+  los_invite_peer_vassals_event.0008.t: "命运转折"
+  los_invite_peer_vassals_event.0008.d_0: "　　我顺手拿了一套仆人的制服提前返回卧室，坐在正对着门的软垫沙发里，等待[los_host_wife.GetFirstName]。不一会儿，便听见门把手转动的声音，“#EMP 亲爱的，你吓到我了，怎么一声不吭坐在这儿，你不应该正在忙活晚宴吗？#!”希望我不合时宜的出现以及接下来将要发生的事情，不会打乱她的好心情。\n　　我站起身，走到她的身旁。她湿漉漉的发梢还散发着丁香和醋栗的甜蜜。我单手捧起她的脸并轻吻，遗憾地说：“#EMP 你仍然至死不渝地爱着我吗？#!”她对我不合时宜的问题表示疑惑。但过了几秒，对着墙上挂的圣子像说：“#EMP 在主的面前发誓，我对你的爱#P 宛若磐石永不改变#!。#!”得到肯定的答复，于是我双手抓起她的两臂对她郑重地说:“#color_red 你愿意为了我做任何的事吗#!？”"
+  los_invite_peer_vassals_event.0008.o_0: "唉！"
+
+  los_invite_peer_vassals_event.0009.t: "急转直下"
+  los_invite_peer_vassals_event.0009.d_0: "　　听到这样的话，她脸上的微笑彻底消失了，心情也急转直下，全身都如临大敌般战栗，#color_red 我的双手几乎都快要握不住她#!。我和她相处这么久，这还是我第一次见她如此这般的伤心。\n　　“#EMP 是我做错了什么吗？#V 大人#!。#!”她连使用的称谓都改变了:“#EMP 今天我的确有些失态，没能和您一起去迎接客人。但...但...#!”#V 她哽咽地说不出话来#!。\n　　我赶紧把她拉入臂弯说：“#EMP 没事，没事！不用这么伤心，我并没有怪罪你。反而是我应该向你请求原谅，我希望你能#color_yellow 假扮侍女#!照顾[los_guest.GetTitledFirstName]。#!”“#EMP 假扮侍女？为什么选我，他都还没见过我呢？#!”她止住了哭声，但仍然在不停地抹眼泪。"
+  los_invite_peer_vassals_event.0009.o_0: "我或许不应该和她解释原因"
+
+  los_invite_peer_vassals_event.0010.t: "接受提案"
+  los_invite_peer_vassals_event.0010.d_0: "　　我说：“#EMP 他见过你，但并不知道是你。他倾心于你的美貌，特来向我请求，许我一个人情。#!”她逐渐平复着心情，我接着说：“#EMP 不用担心，#color_yellow 我会全程和你们在一起#!，他品行端正，外表高尚不会发生什么过激的行为，最后就连她的妻子也都会陪同，一定不会出现什么乱子。#!”\n　　“#EMP 不过，委屈你，必须换上这套粗麻布衣服#!”我从背后取来先前的制服：“#EMP 以及，在仆人的寝室暂住几日。结束后我一定竭尽全力补偿你。#!”\n　　妻子[los_host_wife.GetFirstName]听完我的话沉思了良久，就连我的心里都开始萌生退意，她开口说：“#EMP 亲爱的，我答应你的约定，但我希望你做事前真正考虑过一切可能的后果。#!”接着把头埋到我的胸里，发力抱紧我的身体，我能感觉出她害怕失去我。"
+  los_invite_peer_vassals_event.0010.o_0: "我不知道是该高兴还是伤心"
+
+  los_invite_peer_vassals_event.0011.t: "盛大开幕"
+  los_invite_peer_vassals_event.0011.d_0: "　　总算挨到了晚上，终于可以飨用筵席了。仆人们也得以从一天的紧张情绪中解脱出来，除了一些必要的服务人员（#EMP 日后他们都会得到足量的补偿#!），几乎所有人都得到了与会的资格，甚至包括领外的农民和商贩，因为我们在庄园外也举办了盛大的活动。\n　　我耽搁了一会儿才到宴会厅，没想到[los_guest.GetTitledFirstName]早早地就到了，他坐在会场的高台朝我招手。我踱步过去，他便站起来和我拥抱，于是又互相客套了几句。我接着环顾四周，努力寻找妻子的身影，终于在席间发现了她，我命身边的主管把我指向的侍女唤过来，表示客人想见她。\n　　[los_host_wife.GetFirstName]缓步走到近前，我向她介绍:“#EMP 这是尊敬的[los_guest.GetTitledFirstName]。#!”她便低身行礼。我又向客人介绍这是:“#EMP 这是[los_host_wife.GetFirstName]。#!”“#EMP [los_host_wife.GetFirstName]？多么美妙的名字和它的主人一样美。#!”妻子表示感谢。然后我命她前去接手舞蹈领班的工作。一直到[los_host_wife.GetFirstName]走进后台[los_guest.GetFirstName]的目光就从未从她身上离开。"
+  los_invite_peer_vassals_event.0011.o_0: "#color_yellow 她把他完全迷住了#！"
+
+  los_invite_peer_vassals_event.0012.t: "翩若惊鸿"
+  los_invite_peer_vassals_event.0012.d_0: "　　随着入夜的钟声敲响，场外的礼炮一齐连鸣三声，宣告晚宴正式拉开序幕。领地内到处都是人山人海，人声鼎沸。战乱、疾病和贫困此前一直折磨着我们所有人，但今夜，热闹的氛围充斥着整个“国家”。\n　　随着门前的喇叭声再次激起高昂的音乐，伴着一阵欢腾的韵律，舞蹈团在[los_host_wife.GetFirstName]的带领下盛大登场，从门扉开始，她们齐整舞步，闪转腾挪移入会场的中央。一经登场就吸引了全部人的目光，清凉的绣襦难掩她们的魅力，曼妙的舞姿令飘摇的烛火都自惭形秽。人们相继沉醉于她们的优雅，特别是领舞的舞者，青帷细幔的头纱下若明若暗的绝美脸庞，恬静温柔的轻声哼唱，更是勾起观众无限的遐想，人们纷纷猜测着她的身份......"
+  los_invite_peer_vassals_event.0012.o_0: "[los_host_wife.GetFirstName]实在是太美了"
+
+  los_invite_peer_vassals_event.0013.t: "完美闭幕"
+  los_invite_peer_vassals_event.0013.d_0: "　　一曲终落，舞蹈团欠身致意。余音绕梁，竟使得台下的观众没有任何反应。[los_guest.GetFirstName]突然站起来，高声说：“#EMP 大家都别坐着了，都站起来吧！让我们一起感谢这场精美的表演，向东道主[los_host.GetFirstName]致敬！向美丽的女士们致敬！向[los_host_wife.GetFirstName]致敬！#!”\n　　听见[los_guest.GetFirstName]的召唤，人们纷纷站起来举起酒杯说：“#EMP 向东道主[los_host.GetFirstName]致敬！向美丽的女士们致敬！向[los_host_wife.GetFirstName]致敬！#!”想不到[los_guest.GetFirstName]为人处世这么老练，竟还有如此这般的人格魄力。"
+  los_invite_peer_vassals_event.0013.o_0: "[los_guest.GetFirstName]盖过了我的风头"
+
+  los_invite_peer_vassals_event.9998.t: "漫长等待"
+  los_invite_peer_vassals_event.9998.d_0: "　　总算挨到了晚上，终于可以飨用筵席了。仆人们也得以从一天的紧张情绪中解脱出来，除了一些必要的服务人员（#EMP 日后他们都会得到足量的补偿#!），几乎所有人都得到了与会的资格，甚至包括领外的农民和商贩，因为我们在庄园外也举办了盛大的活动。\n　　席内，客人纷纷落座和身边的人谈笑风生。我眼看着大家就快到齐了，便径直走向主座，席间这才慢慢安静下来，大家收敛兴奋正襟危坐等待主客的到来。坐等右等，门口准备燃放烟花的士兵手中的火把都要燃尽了，却怎么也不见客人的身影。就在我小声呼唤主管，希望他去确认一下情况的时候。门口才传起了[los_guest.GetTitledFirstName]夫妇的脚步，霎时间会场中爆发出雷鸣般的掌声，广场上停放的十二门礼炮一齐放响，房内一角的乐队奏响《欢庆曲》。"
+  los_invite_peer_vassals_event.9998.o_0: "总算来了"
+
+  los_invite_peer_vassals_event.9997.t: "闷闷不乐"
+  los_invite_peer_vassals_event.9997.d_0: "　　他缓身落座，脸上挂着明显的不悦。直到看到我身边的女士，才感到紧张尴尬，整个面部表情都蜷缩到一块，最后不得不举起双手遮盖住面庞：“#EMP 对不起，尊敬的[los_host.GetTitledFirstName]。我实在没能想到那是您的夫人。感谢您之前的大度......或许我已经不知道该说什么了，再三恳求您的原谅！”#!\n　　等到妻子[los_host_wife.GetFirstName]再向他敬酒致辞的时候，他的头显的更低了，宴会最终不得不以这样尴尬的形式结束。不过所幸大家沉浸于喜悦中，没有人在意高台中央发生的插曲。"
+  los_invite_peer_vassals_event.9997.o_0: "宴会结束"
+
+  los_invite_peer_vassals_event.9996.t: "闭门不出"
+  los_invite_peer_vassals_event.9996.d_0: "　　接下来的几天里[los_guest.GetTitledFirstName]都躲在我们为他提供的房间里闭门不出，以至于很多的事项都被迫耽搁下来。期间即便我们多次派人去打听，那边也是以身体抱恙为理由推辞。最后不得不委托他的夫人[los_guest_wife.GetFirstName]代理担任本次行程的主角。"
+  los_invite_peer_vassals_event.9996.o_0: "[Glossary('活动的重心，突然从男人转变为女人（暂时结束）', 'los_invite_peer_vassals_event.0006.o_0_q_0')]"
+  los_invite_peer_vassals_event.0006.o_0_q_0: "我又该如何讨好这位女士呢？"

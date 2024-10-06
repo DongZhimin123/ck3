@@ -1,0 +1,129 @@
+﻿
+los_outfits = {
+    usage = game
+    priority = 1000
+
+    los_maid_outfit = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = western_high_nobility_clothes
+                range = { 0 1 }
+            }
+            accessory = {
+				mode = add
+				gene = hairstyles
+				template = ep2_hairstyles_western
+				range = { 0 1 } # For the randomness to work correctly
+			}
+            accessory = {
+				mode = add
+				gene = headgear
+				template = sp2_western_high_nobility
+				range = { 0 1 } # For the randomness to work correctly
+			}
+            accessory = {
+				mode = add
+				gene = secondary_headgears
+				template = western_wedding
+				range = { 0 1 } # For the randomness to work correctly
+			}
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = no_cloak
+                range = { 0 1 }
+            }
+        }
+        outfit_tags = { los_maid_outfit }
+        weight = 0
+    }
+
+    los_lower_maid_outfit = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = western_commoner_clothes
+                range = { 0 1 }
+            }
+			accessory = {
+				mode = add
+				gene = headgear
+				template = no_headgear
+				range = { 0 1 } # For the randomness to work correctly
+			}
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = no_cloak
+                range = { 0 1 }
+            }
+        }
+        outfit_tags = { los_lower_maid_outfit }
+        weight = 0
+    }
+
+    los_dancer_outfit = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = indian_high_nobility_clothes
+                range = { 0 1 }
+            }
+            accessory = {
+				mode = add
+				gene = hairstyles
+				template = ep2_hairstyles_western
+				range = { 0 1 } # For the randomness to work correctly
+			}
+            accessory = {
+				mode = add
+				gene = headgear
+				template = dde_abbasid_high_nobility
+				range = { 0 1 } # For the randomness to work correctly
+			}
+            accessory = {
+				mode = add
+				gene = secondary_headgears
+				template = western_wedding
+				range = { 0 1 } # For the randomness to work correctly
+			}
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = no_cloak
+                range = { 0 1 }
+            }
+        }
+        outfit_tags = { los_dancer_outfit }
+        weight = 0
+    }
+
+    los_lower_dancer_outfit = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = indian_commoner_clothes
+                range = { 0 1 }
+            }
+			accessory = {
+				mode = add
+				gene = headgear
+				template = no_headgear
+				range = { 0 1 } # For the randomness to work correctly
+			}
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = no_cloak
+                range = { 0 1 }
+            }
+        }
+        outfit_tags = { los_lower_dancer_outfit }
+        weight = 0
+    }
+}
