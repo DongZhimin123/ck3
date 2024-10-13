@@ -1,5 +1,6 @@
 @los_visit_days = 60
 
+# 邀请同僚事件
 namespace = los_invite_peer_vassals_event
 
 # 邀请同僚事件 结束
@@ -25,9 +26,6 @@ los_invite_peer_vassals_event.9999 = {
     }
 }
 
-
-
-# 邀请同僚事件 0001~0005
 los_invite_peer_vassals_event.0001 = {
     hidden = yes
 
@@ -80,8 +78,6 @@ los_invite_peer_vassals_event.0002 = {
                 }
             }
         }
-
-
     }
 
     desc = {
@@ -101,25 +97,15 @@ los_invite_peer_vassals_event.0002 = {
     option = {
         name = los_invite_peer_vassals_event.0002.o_1
 
-        if = {
-            limit = {
-                AND = {
-                    scope:los_host = {
-                        has_variable = los_recipient_rank
-                        var:los_recipient_rank = 2
-                    }
-                }
-            }
-            custom_tooltip = {
-                text = los_invite_peer_vassals_event.0002.ct_2
-            }
-        } else = {
-            custom_tooltip = {
-                text = los_invite_peer_vassals_event.0002.ct_1
-            }
-        }
-
         trigger_event = los_invite_peer_vassals_event.0003
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0002.o_2
+
+        trigger = { yes = no }
+
+        show_as_unavailable = { always = yes }
     }
 
     after = {
@@ -128,7 +114,6 @@ los_invite_peer_vassals_event.0002 = {
         }
     }
 }
-
 # 洗尘接风
 los_invite_peer_vassals_event.0003 = {
     type = character_event
@@ -167,9 +152,6 @@ los_invite_peer_vassals_event.0003 = {
         custom_tooltip = los_invite_peer_vassals_event.0003.o_1_ct_1
         scope:los_host = {
             add_gold = 50
-            add_county_modifier = {
-                years = 5
-            }
         }
 
         custom_tooltip = los_invite_peer_vassals_event.0003.o_1_ct_2
@@ -303,7 +285,7 @@ los_invite_peer_vassals_event.0005 = {
 
     right_portrait = {
         character = scope:los_guest
-        animation =
+        animation = personality_compassionate
     }
 
     lower_right_portrait = {
@@ -351,6 +333,10 @@ los_invite_peer_vassals_event.0006 = {
     option = {
         name = los_invite_peer_vassals_event.0006.o_1
 
+        custom_tooltip = {
+            text = los_invite_peer_vassals_event.0006.o_1_ct_1
+        }
+
         trigger_event = los_invite_peer_vassals_event.0007
     }
 
@@ -372,7 +358,7 @@ los_invite_peer_vassals_event.0007 = {
 
     left_portrait = {
         character = scope:los_guest
-        animation = paranoia
+        animation = bribing
     }
 
     right_portrait = {
@@ -552,7 +538,6 @@ los_invite_peer_vassals_event.0011 = {
         trigger_event = los_invite_peer_vassals_event.0012
     }
 }
-
 # 翩若惊鸿
 los_invite_peer_vassals_event.0012 = {
     type = character_event
@@ -691,8 +676,7 @@ los_invite_peer_vassals_event.0012 = {
         trigger_event = los_invite_peer_vassals_event.0013
     }
 }
-
-# 完美闭幕
+# 完美谢幕
 los_invite_peer_vassals_event.0013 = {
     type = character_event
     title = los_invite_peer_vassals_event.0013.t
@@ -758,6 +742,12 @@ los_invite_peer_vassals_event.0013 = {
     option = {
         name = los_invite_peer_vassals_event.0013.o_0
 
+        scope:los_host= {
+            set_relation_friend = {
+                target = scope:los_guest
+            }
+        }
+
         trigger_event = los_invite_peer_vassals_event.0014
     }
 
@@ -786,7 +776,179 @@ los_invite_peer_vassals_event.0013 = {
         }
     }
 }
+# 英雄救美
+los_invite_peer_vassals_event.0014 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.0014.t
+    theme = feast_activity
 
+    override_background  = { reference = alley_night }
+
+    window = visit_settlement_window
+
+    immediate = {
+        hidden_effect = {
+            scope:los_guest = {
+                random_courtier_or_guest = {
+                    limit = {
+                        is_male = yes
+                        is_adult = yes
+                    }
+                    add_trait = drunkard
+                    save_scope_as = los_guest_random_coutier
+                }
+            }
+            scope:los_guest = {
+                add_trait = drunkard
+            }
+            scope:los_host = {
+                add_trait = drunkard
+            }
+        }
+    }
+
+    desc = los_invite_peer_vassals_event.0014.d_0
+
+    center_portrait = {
+        character = scope:los_guest
+        animation = stayback
+    }
+
+    left_portrait = {
+        character = scope:los_host.primary_spouse
+        animation = shock
+        triggered_outfit = {
+            trigger = {
+                scope:los_host.primary_spouse = {
+                    has_character_flag = los_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_dancer_outfit }
+        }
+    }
+
+    right_portrait = {
+        character = scope:los_guest_random_coutier
+        animation = pain
+    }
+
+    lower_left_portrait = {
+        character = scope:los_host
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0014.o_0
+
+        custom_tooltip = los_invite_peer_vassals_event.0014.o_0_ct_1
+
+        trigger_event = los_invite_peer_vassals_event.0015
+    }
+
+    after = {
+        hidden_effect = {
+            scope:los_guest_random_coutier = {
+                remove_trait = drunkard
+            }
+            clear_saved_scope = los_guest_random_coutier
+        }
+    }
+}
+# 护送机会
+los_invite_peer_vassals_event.0015 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.0015.t
+    theme = feast_activity
+
+    override_background  = { reference = alley_night }
+
+    window = visit_settlement_window
+
+    immediate = {}
+
+    desc = los_invite_peer_vassals_event.0015.d_0
+
+    center_portrait = {
+        character = scope:los_guest
+        animation = personality_content
+    }
+
+    left_portrait = {
+        character = scope:los_host.primary_spouse
+        animation = disbelief
+        triggered_outfit = {
+            trigger = {
+                scope:los_host.primary_spouse = {
+                    has_character_flag = los_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_dancer_outfit }
+        }
+    }
+
+    right_portrait = {
+        character = scope:los_host
+        animation = personality_forgiving
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0015.o_0
+
+        trigger_event = los_invite_peer_vassals_event.0016
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0015.o_1
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0015.o_2
+    }
+
+    after = {
+        hidden_effect = {
+            scope:los_guest = {
+                remove_trait = drunkard
+            }
+            scope:los_host = {
+                remove_trait = drunkard
+            }
+
+            clear_saved_scope = los_guest_random_coutier
+        }
+    }
+}
+# 结束
+los_invite_peer_vassals_event.0016 = {
+    type = character_event
+    title = los_invite_peer_vassals_event.0016.t
+    theme = feast_activity
+
+    window = visit_settlement_window
+
+    immediate = { }
+
+    desc = los_invite_peer_vassals_event.0016.d_0
+
+    left_portrait = {
+        character = scope:los_host
+        animation = prayer
+    }
+
+    right_portrait = {
+        character = scope:los_host.cp:councillor_court_chaplain
+        animation = throne_room_applaud_1
+    }
+
+    option = {
+        name = los_invite_peer_vassals_event.0016.o_0
+
+        trigger_event = los_invite_peer_vassals_event.0017
+    }
+
+    after = {}
+}
 # 漫长等待
 los_invite_peer_vassals_event.9998 = {
     type = character_event
@@ -820,7 +982,6 @@ los_invite_peer_vassals_event.9998 = {
 
     after = {}
 }
-
 # 闷闷不乐
 los_invite_peer_vassals_event.9997 = {
     type = character_event
@@ -859,7 +1020,6 @@ los_invite_peer_vassals_event.9997 = {
 
     after = {}
 }
-
 # 闭门不出
 los_invite_peer_vassals_event.9996 = {
     type = character_event
@@ -889,6 +1049,8 @@ los_invite_peer_vassals_event.9996 = {
 
     option = {
         name = los_invite_peer_vassals_event.9996.o_0
+
+        custom_tooltip = los_invite_peer_vassals_event.9996.o_0_ct_1
 
         trigger_event = los_invite_peer_vassals_event.9995
     }
