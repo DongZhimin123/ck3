@@ -78,7 +78,7 @@
   los_invite_peer_vassals_event.0016.d_0: "　　我虽心有余悸，但碍于主人的身份，我必须返回，继续主持宴会。此时，宴会也到尾声，周遭只残有依稀的细语，人们横七竖八地俯倒在长椅上或长桌上，更有甚者坐在地上倚靠着墙休息，一夜的载歌载舞让他们精疲力竭。我快步走向高台，晚夜清朗的冷风刮走了我的醉意，我清了清嗓子，大家慢慢地苏醒，我高声说:“#EMP 大家都醒一醒！醒一醒，就要到#V 最后一个环节#!了，请再忍耐一下。经上说：[Glossary('宰杀牲畜，调和旨酒，设摆筵席', 'los_invite_peer_vassals_event.0016.d_0_q_0')]。我们欢聚于此不仅仅是为了迎接客人，更是为了犒劳大家一直以来的辛勤工作，没有你们的帮助我不可能得到今天的地位。#!”\n　　“#EMP 而没有神的垂怜这酒肉于我又有何益处呢？[Glossary('因为好酒贪食的，必致贫穷', 'los_invite_peer_vassals_event.0016.d_0_q_1')]，唯有这酒是为了主的荣耀而饮，这肉是为了主的慈爱而食，才是可堪采用的。在这最后阶段，请原谅我要求大家一起向主祈祷。#!”"
   los_invite_peer_vassals_event.0016.d_0_q_0: "《旧约》箴言 9:2"
   los_invite_peer_vassals_event.0016.d_0_q_1: "《旧约》箴言 23:21"
-  los_invite_peer_vassals_event.0016.o_0: "这不是好极了吗！(序章结束)"
+  los_invite_peer_vassals_event.0016.o_0: "说的太好了，不是吗！(序章结束)"
   los_invite_peer_vassals_event.0016.o_0_ct_1: "好在哪？"
 
   los_invite_peer_vassals_event.9998.t: "漫长等待"
@@ -91,5 +91,5 @@
 
   los_invite_peer_vassals_event.9996.t: "闭门不出"
   los_invite_peer_vassals_event.9996.d_0: "　　接下来的几天里[los_guest.GetTitledFirstName]都躲在我们为他提供的房间里闭门不出，以至于很多的事项都被迫耽搁下来。期间即便我们多次派人去打听，那边也是以身体抱恙为理由推辞。最后不得不委托他的夫人[los_guest_wife.GetFirstName]代理担任本次行程的主角。"
-  los_invite_peer_vassals_event.9996.o_0: "活动的重心，突然从男人转变为女人（暂时结束"
+  los_invite_peer_vassals_event.9996.o_0: "活动的重心，突然从男人转变为女人（暂时结束）"
   los_invite_peer_vassals_event.0006.o_0_ct_1: "我又该如何讨好这位女士呢？"

@@ -1,0 +1,43 @@
+# 主线
+namespace = los_main_event
+
+los_main_event.0001 = {
+    hidden = yes
+
+    immediate = {
+        if = {
+            limit = {
+                exists = global_var:los_over_event_count
+                global_var:los_over_event_count < 3
+            }
+            change_global_variable = {
+                name = los_over_event_count
+                add = 1
+            }
+            # 继续
+            random_list = {
+                100 = {
+                    trigger_event = los_market_event.0001
+                }
+            }
+        } else_if = {
+            limit = {
+                exists = global_var:los_over_event_count
+                global_var:los_over_event_count >= 3
+            }
+            # 结束
+            remove_global_variable = los_over_event_count
+        } else = {
+            set_global_variable = {
+                name = los_over_event_count
+                value = 0
+            }
+            # 开始
+            random_list = {
+                100 = {
+                    trigger_event = los_market_event.0001
+                }
+            }
+        }
+    }
+}

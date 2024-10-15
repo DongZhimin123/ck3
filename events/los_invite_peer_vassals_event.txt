@@ -3,7 +3,7 @@
 # 邀请同僚事件
 namespace = los_invite_peer_vassals_event
 
-# 邀请同僚事件 结束
+# 结束(意外)
 los_invite_peer_vassals_event.9999 = {
     hidden = yes
 
@@ -22,10 +22,13 @@ los_invite_peer_vassals_event.9999 = {
 
     immediate = {
         clear_saved_scope = los_guest
+        clear_saved_scope = los_host_wife
         clear_saved_scope = los_host
+        clear_saved_scope = los_guest_wife
     }
 }
 
+# 开始
 los_invite_peer_vassals_event.0001 = {
     hidden = yes
 
@@ -56,33 +59,31 @@ los_invite_peer_vassals_event.0002 = {
     window = visit_settlement_window
 
     immediate = {
-        scope:los_host = {
-            set_variable = {
-                name = los_recipient_rank
-                value = 1
-            }
+        # scope:los_host = {
+        #     set_variable = {
+        #         name = los_recipient_rank
+        #         value = 1
+        #     }
 
 
-        }
+        # }
 
-        if = {
-            limit = {
-                scope:los_host.domicile ?= {
-                    has_domicile_building_or_higher = reception_hall_01
-                }
-            }
-            scope:los_host = {
-                change_variable = {
-                    name = los_recipient_rank
-                    add = 1
-                }
-            }
-        }
+        # if = {
+        #     limit = {
+        #         scope:los_host.domicile ?= {
+        #             has_domicile_building_or_higher = reception_hall_01
+        #         }
+        #     }
+        #     scope:los_host = {
+        #         change_variable = {
+        #             name = los_recipient_rank
+        #             add = 1
+        #         }
+        #     }
+        # }
     }
 
-    desc = {
-        desc = los_invite_peer_vassals_event.0002.d_0
-    }
+    desc = los_invite_peer_vassals_event.0002.d_0
 
     left_portrait = {
         character = scope:los_host
@@ -91,7 +92,7 @@ los_invite_peer_vassals_event.0002 = {
 
     right_portrait = {
         character = scope:los_host.cp:councillor_chancellor
-        animation = steward
+        animation = writing
     }
 
     option = {
@@ -103,15 +104,17 @@ los_invite_peer_vassals_event.0002 = {
     option = {
         name = los_invite_peer_vassals_event.0002.o_2
 
-        trigger = { yes = no }
+        trigger_event =  los_main_event.0001
 
-        show_as_unavailable = { always = yes }
+        # trigger = { yes = no }
+
+        # show_as_unavailable = { always = yes }
     }
 
     after = {
-        scope:los_host = {
-            remove_variable = los_recipient_rank
-        }
+        # scope:los_host = {
+        #     remove_variable = los_recipient_rank
+        # }
     }
 }
 # 洗尘接风
@@ -316,6 +319,7 @@ los_invite_peer_vassals_event.0006 = {
 
     right_portrait = {
         character = scope:los_host.primary_spouse
+        animation = personality_irrational
         triggered_outfit = {
             remove_default_outfit = no
             outfit_tags = { no_clothes }
@@ -548,7 +552,7 @@ los_invite_peer_vassals_event.0012 = {
 
     immediate = {
         create_character = {
-            age = { 18 40 }
+            age = { 18 25 }
             random_traits = yes
             gender_female_chance = 100
             dynasty = none
@@ -559,11 +563,50 @@ los_invite_peer_vassals_event.0012 = {
                 min_template_decent_skill
                 max_template_decent_skill
             }
-            save_scope_as = los_lower_maid_1
+
+            after_creation = {
+                save_scope_as = los_lower_maid_1
+                add_character_flag = los_lower_maid
+            }
         }
 
-        scope:los_lower_maid_1 = {
-            add_character_flag = los_lower_maid
+        create_character = {
+            age = { 18 25 }
+            random_traits = yes
+            gender_female_chance = 100
+            dynasty = none
+            location = scope:los_host.capital_province
+            culture = scope:los_host.capital_province.culture
+            faith = scope:los_host.capital_province.faith
+            intrigue = {
+                min_template_decent_skill
+                max_template_decent_skill
+            }
+
+            after_creation = {
+                save_scope_as = los_lower_maid_2
+                add_character_flag = los_lower_maid
+            }
+        }
+
+
+        create_character = {
+            age = { 18 25 }
+            random_traits = yes
+            gender_female_chance = 100
+            dynasty = none
+            location = scope:los_host.capital_province
+            culture = scope:los_host.capital_province.culture
+            faith = scope:los_host.capital_province.faith
+            intrigue = {
+                min_template_decent_skill
+                max_template_decent_skill
+            }
+
+            after_creation = {
+                save_scope_as = los_lower_maid_3
+                add_character_flag = los_lower_maid
+            }
         }
 
         create_character = {
@@ -578,41 +621,10 @@ los_invite_peer_vassals_event.0012 = {
                 min_template_decent_skill
                 max_template_decent_skill
             }
-            save_scope_as = los_lower_maid_2
-        }
-
-        scope:los_lower_maid_2 = {
-            add_character_flag = los_lower_maid
-        }
-
-        create_character = {
-            age = { 18 40 }
-            random_traits = yes
-            gender_female_chance = 100
-            dynasty = none
-            location = scope:los_host.capital_province
-            culture = scope:los_host.capital_province.culture
-            faith = scope:los_host.capital_province.faith
-            intrigue = {
-                min_template_decent_skill
-                max_template_decent_skill
+            after_creation = {
+                save_scope_as = los_lower_maid_4
+                add_character_flag = los_lower_maid
             }
-            save_scope_as = los_lower_maid_3
-        }
-
-        create_character = {
-            age = { 18 40 }
-            random_traits = yes
-            gender_female_chance = 100
-            dynasty = none
-            location = scope:los_host.capital_province
-            culture = scope:los_host.capital_province.culture
-            faith = scope:los_host.capital_province.faith
-            intrigue = {
-                min_template_decent_skill
-                max_template_decent_skill
-            }
-            save_scope_as = los_lower_maid_4
         }
 
 
@@ -944,7 +956,10 @@ los_invite_peer_vassals_event.0016 = {
     option = {
         name = los_invite_peer_vassals_event.0016.o_0
 
-        trigger_event = los_invite_peer_vassals_event.0017
+        trigger_event = {
+            id = los_main_event.0001
+            days = 3
+        }
     }
 
     after = {}

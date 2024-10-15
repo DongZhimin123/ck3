@@ -1,0 +1,960 @@
+@los_visit_days = 60
+# 市场线
+namespace = los_market_event
+
+# 准备工作
+los_market_event.0001 = {
+    type = character_event
+    title = los_market_event.0001.t
+    theme = court
+
+    window = visit_settlement_window
+
+    desc = los_market_event.0001.d_0
+
+    immediate = {
+        if = {
+            limit = {
+                scope:los_host.primary_spouse = {
+                    NOT = { has_character_flag = los_maid }
+                }
+            }
+        }
+        scope:los_host.primary_spouse = {
+            add_character_flag = {
+                flag = los_maid
+                days = @los_visit_days
+            }
+        }
+    }
+
+    left_portrait = {
+        character = scope:los_host
+        animation = personality_honorable
+    }
+
+    right_portrait = {
+        character = scope:los_host.cp:councillor_chancellor
+        animation = writing
+    }
+
+    option = {
+        name = los_market_event.0001.o_1
+
+        trigger_event = {
+            id = los_market_event.0002
+            days = 1
+        }
+    }
+}
+# 出发
+los_market_event.0002 = {
+    type = character_event
+    title = los_market_event.0001.t
+    theme = travel
+
+    override_background = { reference = courtyard }
+    #override_background = {
+    #	reference = wilderness_wetlands
+    #}
+    #	override_background = {
+    #	reference = burning_building
+    #}
+
+    #override_background = {
+    #	reference = terrain_travel
+    #}
+    #override_background = {
+    #	reference = fp3_zoroastrian_temple
+    #}
+    #override_background = { reference = ce1_catacombs }
+    #override_background = {
+    #	reference = holy_site_generic
+    #}
+    #override_background = {
+    #	reference = ep2_travel_settlement_mountains
+    #}
+    #override_background = { reference = bp1_docks_tribal }
+    #override_background = { reference = ocean }
+    #override_background = { reference = ep3_relaxing_tent }
+    #override_background = { reference = wilderness }
+    #override_background = {
+    #	reference = bp1_crossroads_inn
+    #}
+    #override_background = { reference = tavern }
+    #override_background = { reference = bp1_bonfire }
+    #override_background = { reference = feast }
+    #override_background = { reference = market }
+    window = visit_settlement_window
+
+    desc = los_market_event.0002.d_0
+
+    left_portrait = {
+        character = scope:los_host
+        animation = chancellor
+    }
+
+    center_portrait = {
+        character = scope:los_host.primary_spouse
+        animation = personality_compassionate
+        triggered_outfit = {
+            trigger = {
+                scope:los_host.primary_spouse = {
+                    has_character_flag = los_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_maid_outfit }
+        }
+    }
+
+    right_portrait = {
+        character = scope:los_guest
+        animation = happiness
+    }
+
+    lower_left_portrait = {
+        character = scope:los_host.cp:councillor_chancellor
+        animation = chancellor
+    }
+
+    lower_right_portrait = {
+        character = scope:los_guest.primary_spouse
+    }
+
+    option = {
+        name = los_market_event.0002.o_1
+
+        trigger_event = los_market_event.0003
+    }
+}
+# 池塘
+los_market_event.0003 = {
+    type = character_event
+    title = los_market_event.0003.t
+    theme = travel
+
+    override_background = {
+        reference = wilderness_wetlands
+    }
+
+    window = visit_settlement_window
+
+    desc = los_market_event.0003.d_0
+
+    left_portrait = {
+        character = scope:los_host
+        animation = ecstasy
+    }
+
+    center_portrait = {
+        character = scope:los_host.primary_spouse
+        animation = ecstasy
+        triggered_outfit = {
+            trigger = {
+                scope:los_host.primary_spouse = {
+                    has_character_flag = los_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_maid_outfit }
+        }
+    }
+
+    lower_center_portrait = {
+        character = scope:los_guest
+        animation = ecstasy
+    }
+
+    lower_left_portrait = {
+        character = scope:los_host.cp:councillor_chancellor
+    }
+
+    lower_right_portrait = {
+        character = scope:los_guest.primary_spouse
+    }
+
+    option = {
+        name = los_market_event.0003.o_1
+
+        trigger_event = los_market_event.0004
+    }
+}
+# 路上
+los_market_event.0004 = {
+    type = character_event
+    title = los_market_event.0004.t
+    theme = travel
+
+    window = visit_settlement_window
+
+    desc = los_market_event.0004.d_0
+
+    left_portrait = {
+        character = scope:los_host
+        animation = personality_rational
+    }
+
+    center_portrait = {
+        character = scope:los_guest
+        animation = dismissal
+    }
+
+    right_portrait = {
+        character = scope:los_guest.primary_spouse
+        animation = disgust
+    }
+
+    lower_left_portrait = {
+        character = scope:los_host.cp:councillor_chancellor
+    }
+
+    lower_right_portrait = {
+        character = scope:los_host.primary_spouse
+        triggered_outfit = {
+            trigger = {
+                scope:los_host.primary_spouse = {
+                    has_character_flag = los_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_maid_outfit }
+        }
+    }
+
+    option = {
+        name = los_market_event.0004.o_1
+
+        trigger_event = los_market_event.0005
+    }
+}
+# 大门
+los_market_event.0005 = {
+    type = character_event
+    title = los_market_event.0005.t
+    theme = landless_adventurer
+
+    override_background = {
+        reference = ep3_city_gate
+        #western_tavern
+    }
+
+    override_sound = {
+        reference = "event:/SFX/Events/Themes/sfx_event_theme_type_stewardship"
+    }
+
+    immediate = {
+        scope:los_host = {
+            # 街边
+            set_variable = {
+                name = los_market_street_flag
+                value = 0
+
+                #gallows
+                #alley_day
+            }
+            # 铁匠铺
+            set_variable = {
+                name = los_market_weaponsmith_flag
+                value = 0
+
+                #type = activity_event
+                #theme = tournament_locale_forge
+
+                #armory
+            }
+            # 医院
+            set_variable = {
+                name = los_market_clinic_flag
+                value = 0
+
+                #physicians_study
+            }
+            # 摊贩
+            set_variable = {
+                name = los_market_vendor_flag
+                value = 0
+
+                #market_west
+                #market_tribal
+                #market_east
+                #ep2_village_festival
+            }
+            # 服装店
+            set_variable = {
+                name = los_market_store_flag
+                value = 0
+
+                #location_study
+            }
+        }
+    }
+
+
+    window = visit_settlement_window
+
+    desc = los_market_event.0005.d_0
+
+    left_portrait = {
+        character = scope:los_host
+        animation = personality_bold
+    }
+
+    center_portrait = {
+        character = scope:los_guest
+        animation = personality_callous
+    }
+
+    right_portrait = {
+        character = scope:los_host.primary_spouse
+        animation = personality_irrational
+        triggered_outfit = {
+            trigger = {
+                scope:los_host.primary_spouse = {
+                    has_character_flag = los_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_maid_outfit }
+        }
+    }
+
+    option = {
+        name = los_market_event.0005.o_0
+    }
+
+    option = {
+        name =  los_market_event.0005.o_1
+
+        custom_tooltip = los_market_event.0005.o_1_ct_0
+
+        trigger_event = los_market_event.1001
+    }
+
+    option = {
+        name = los_market_event.0005.o_2
+
+        trigger_event = los_market_event.2001
+    }
+
+    option = {
+        name = los_market_event.0005.o_3
+
+        trigger_event = los_market_event.3001
+    }
+
+    option = {
+        name = los_market_event.0005.o_4
+
+
+        trigger_event = los_market_event.4001
+    }
+
+    option = {
+        name = los_market_event.0005.o_5
+        trigger = {
+            scope:los_host = { var:los_market_store_flag = no }
+        }
+
+        #show_as_unavailable = {
+        #    trigger_if = {
+        #        limit = {
+        #            scope:los_host = { var:los_market_store_flag = yes }
+        #        }
+        #        always = yes
+        #    }
+        #    trigger_else = { always = no }
+        #}
+
+        trigger_event = los_market_event.5001
+    }
+}
+# 路边行人
+los_market_event.1001 = {
+    type = character_event
+    title = los_market_event.1001.t
+    theme = landless_adventurer
+
+    override_background = {
+        reference = gallows
+    }
+
+    window = visit_settlement_window
+
+    desc = {
+        triggered_desc ={
+            trigger = {
+                scope:los_host = {
+                    var:los_market_street_flag = 0
+                }
+            }
+            desc = los_market_event.1001.d_0
+        }
+        triggered_desc ={
+            trigger = {
+                scope:los_host = {
+                    var:los_market_street_flag > 0
+                }
+            }
+            desc = los_market_event.1001.d_1
+        }
+    }
+
+    immediate = {
+        if = {
+            limit = {
+                NOT = { exists = scope:los_poor_peasant }
+            }
+
+            create_character = {
+                age = { 18 30 }
+                random_traits = yes
+                gender_female_chance = 100
+                dynasty = none
+                location = scope:los_host.capital_province
+                culture = scope:los_host.capital_province.culture
+                faith = scope:los_host.capital_province.faith
+                intrigue = {
+                    min_template_decent_skill
+                    max_template_decent_skill
+                }
+
+                after_creation = {
+                    save_scope_as = los_poor_peasant
+
+                    add_trait = lunatic_1
+
+                    change_current_weight = -75
+                }
+            }
+
+            create_character = {
+                age = { 25 40 }
+                random_traits = yes
+                gender_female_chance = 0
+                dynasty = none
+                location = scope:los_host.capital_province
+                culture = scope:los_host.capital_province.culture
+                faith = scope:los_host.capital_province.faith
+                intrigue = {
+                    min_template_decent_skill
+                    max_template_decent_skill
+                }
+
+                after_creation = {
+                    save_scope_as = los_poor_peasant_husband
+
+                    set_relation_soulmate = {
+                        target = scope:los_poor_peasant
+                    }
+
+                    add_spouse = scope:los_poor_peasant
+
+                    death = {
+                        death_reason = death_battle
+                    }
+
+                    set_primary_spouse = scope:los_poor_peasant
+                }
+            }
+
+            create_character = {
+                age = { 1 12 }
+                random_traits = no
+                gender_female_chance = 50
+                dynasty = none
+                location = scope:los_host.capital_province
+                culture = scope:los_host.capital_province.culture
+                faith = scope:los_host.capital_province.faith
+                random_traits_list = {
+                    count = 1
+                    rowdy = {}
+                    charming = {}
+                    curious = {}
+                    pensive = {}
+                    bossy = {}
+                }
+                #Misc
+                random_traits = no
+                gender_female_chance = 50
+                #Skills
+                diplomacy = { min_template_low_skill max_template_low_skill }
+                martial = { min_template_low_skill max_template_low_skill }
+                stewardship = { min_template_low_skill max_template_low_skill }
+                intrigue = { min_template_average_skill max_template_average_skill }
+                learning = { min_template_low_skill max_template_low_skill }
+                prowess = { min_template_low_skill max_template_low_skill }
+                mother = scope:los_poor_peasant
+                father = scope:los_poor_peasant_husband
+
+                after_creation = {
+                    save_scope_as = los_poor_peasant_child
+                    change_current_weight = -75
+
+                    death = {
+                        death_reason = death_starved
+                    }
+                }
+            }
+
+            hidden_effect = {
+                scope:los_guest = {
+                    remove_short_term_gold = 5
+                }
+            }
+        }
+
+    }
+
+    center_portrait = {
+        trigger = {
+            scope:los_host = {
+                var:los_market_street_flag = 0
+            }
+        }
+        character = scope:los_guest
+        # animation = steward
+        animation = fear
+    }
+
+    right_portrait = {
+        character = scope:los_poor_peasant
+        animation = crying
+    }
+
+    lower_left_portrait = {
+
+        character = scope:los_host
+    }
+
+    lower_center_portrait = {
+        trigger = {
+            scope:los_host = {
+                var:los_market_street_flag > 0
+            }
+        }
+        character = scope:los_guest
+    }
+
+    lower_right_portrait = {
+        character = scope:los_host.primary_spouse
+
+        triggered_outfit = {
+            trigger = {
+                scope:los_host.primary_spouse = {
+                    has_character_flag = los_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_maid_outfit }
+        }
+    }
+
+    option = {
+        name = los_market_event.1001.o_0
+
+        trigger = {
+            scope:los_host = {
+                var:los_market_street_flag = 0
+            }
+        }
+
+        custom_tooltip = los_market_event.1001.o_0_ct_0
+
+        trigger_event = los_market_event.1002
+    }
+
+    option = {
+        name = los_market_event.1001.o_1
+
+        custom_tooltip = los_market_event.1001.o_1_ct_0
+
+        trigger_event = los_market_event.0005
+    }
+
+    after = {
+        hidden_effect = {
+            #scope:los_poor_peasant = {
+            #    death = {
+            #        death_reason = death_vanished
+            #    }
+            #}
+
+            if = {
+                limit = {
+                    scope:los_host = {
+                        has_variable = los_market_street_flag
+                    }
+                }
+                scope:los_host = {
+                    change_variable = {
+                        name = los_market_street_flag
+                        add = 1
+                    }
+                }
+
+            }
+        }
+
+        #clear_saved_scope = los_poor_peasant
+        #clear_saved_scope = los_poor_peasant_child
+        #clear_saved_scope = los_poor_peasant_husband
+    }
+}
+los_market_event.1002 = {
+    type = character_event
+    title = los_market_event.1002.t
+    theme = landless_adventurer
+
+    override_background = {
+        reference = holy_site_generic
+    }
+
+    window = visit_settlement_window
+
+    desc = los_market_event.1002.d_0
+
+    immediate = {}
+
+    left_portrait = {
+        character = scope:los_host
+        animation = personality_irrational
+    }
+
+    center_portrait = {
+        character = scope:los_host.primary_spouse
+        animation = worry
+        triggered_outfit = {
+            trigger = {
+                scope:los_host.primary_spouse = {
+                    has_character_flag = los_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_maid_outfit }
+        }
+    }
+
+    lower_center_portrait = {
+
+        character = scope:los_guest
+    }
+
+    option = {
+        name = los_market_event.1002.o_0
+
+        trigger_event = los_market_event.2001
+    }
+
+    after = {}
+}
+
+# 诊所
+los_market_event.2001 = {
+    type = character_event
+    title = los_market_event.2001.t
+    theme = landless_adventurer
+
+    override_background = {
+        reference = throne_room_tribal
+    }
+
+    window = visit_settlement_window
+
+    desc = los_market_event.2001.d_0
+
+    immediate = {
+        if = {
+            limit = {
+                NOT = { exists = scope:los_market_clinic_child_1 }
+                NOT = { exists = scope:los_market_clinic_child_2 }
+            }
+
+            create_character = {
+                age = { 1 12 }
+                random_traits = no
+                gender_female_chance = 50
+                dynasty = none
+                location = scope:los_host.capital_province
+                culture = scope:los_host.capital_province.culture
+                faith = scope:los_host.capital_province.faith
+                random_traits_list = {
+                    count = 1
+                    rowdy = {}
+                    charming = {}
+                    curious = {}
+                    pensive = {}
+                    bossy = {}
+                }
+                #Misc
+                random_traits = no
+                gender_female_chance = 50
+                #Skills
+                diplomacy = { min_template_low_skill max_template_low_skill }
+                martial = { min_template_low_skill max_template_low_skill }
+                stewardship = { min_template_low_skill max_template_low_skill }
+                intrigue = { min_template_average_skill max_template_average_skill }
+                learning = { min_template_low_skill max_template_low_skill }
+                prowess = { min_template_low_skill max_template_low_skill }
+                mother = scope:los_poor_peasant
+                father = scope:los_poor_peasant_husband
+
+                after_creation = {
+                    save_scope_as = los_market_clinic_child_1
+                    change_current_weight = -75
+                }
+            }
+
+            create_character = {
+                age = { 1 12 }
+                random_traits = no
+                gender_female_chance = 50
+                dynasty = none
+                location = scope:los_host.capital_province
+                culture = scope:los_host.capital_province.culture
+                faith = scope:los_host.capital_province.faith
+                random_traits_list = {
+                    count = 1
+                    rowdy = {}
+                    charming = {}
+                    curious = {}
+                    pensive = {}
+                    bossy = {}
+                }
+                #Misc
+                random_traits = no
+                gender_female_chance = 50
+                #Skills
+                diplomacy = { min_template_low_skill max_template_low_skill }
+                martial = { min_template_low_skill max_template_low_skill }
+                stewardship = { min_template_low_skill max_template_low_skill }
+                intrigue = { min_template_average_skill max_template_average_skill }
+                learning = { min_template_low_skill max_template_low_skill }
+                prowess = { min_template_low_skill max_template_low_skill }
+                mother = scope:los_poor_peasant
+                father = scope:los_poor_peasant_husband
+
+                after_creation = {
+                    save_scope_as = los_market_clinic_child_2
+                    change_current_weight = -75
+                }
+            }
+        }
+    }
+
+    left_portrait = {
+        character = scope:los_market_clinic_child_1
+        animation = go_to_your_room
+    }
+
+    center_portrait = {
+        character = scope:los_market_clinic_child_2
+        animation = go_to_your_room
+    }
+
+    right_portrait = {
+        character = scope:los_guest
+        animation = personality_bold
+    }
+
+
+    lower_left_portrait = {
+        character = scope:los_host
+    }
+
+    lower_center_portrait = {
+        character = scope:los_host.primary_spouse
+        triggered_outfit = {
+            trigger = {
+                scope:los_host.primary_spouse = {
+                    has_character_flag = los_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_maid_outfit }
+        }
+    }
+
+    option = {
+        name = los_market_event.2001.o_0
+
+        trigger_event = los_market_event.2002
+    }
+
+    after = {}
+}
+los_market_event.2002 = {
+    type = character_event
+    title = los_market_event.2002.t
+    theme = landless_adventurer
+
+
+    override_background = { reference = ce1_catacombs }
+    override_effect_2d = fog
+
+    window = visit_settlement_window
+
+    desc = los_market_event.2002.d_0
+
+    immediate = {}
+
+    left_portrait = {
+        character = scope:los_host
+        animation = personality_zealous
+    }
+
+    center_portrait = {
+        character = scope:los_host.primary_spouse
+        animation = grief
+        triggered_outfit = {
+            trigger = {
+                scope:los_host.primary_spouse = {
+                    has_character_flag = los_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_maid_outfit }
+        }
+    }
+
+    right_portrait = {
+        character = scope:los_guest
+        animation = personality_dishonorable
+    }
+
+    option = {
+        name = los_market_event.2002.o_0
+
+        trigger_event = los_market_event.2003
+    }
+
+    after = {}
+}
+los_market_event.2003 = {
+    type = character_event
+    title = los_market_event.2003.t
+    theme = landless_adventurer
+
+    override_background = { reference = physicians_study }
+
+    override_effect_2d = fog
+
+    window = visit_settlement_window
+
+    desc = los_market_event.2003.d_0
+
+    immediate = {
+        if = {
+            limit = {
+                NOT = { exists = scope:los_market_clinic_healer  }
+            }
+            create_character = {
+                age = { 35 50 }
+                random_traits = yes
+                gender_female_chance = 100
+                dynasty = none
+                location = scope:los_host.capital_province
+                culture = scope:los_host.capital_province.culture
+                faith = scope:los_host.capital_province.faith
+                intrigue = {
+                    min_template_decent_skill
+                    max_template_decent_skill
+                }
+
+                after_creation = {
+                    save_scope_as = los_market_clinic_healer
+                    add_trait = physician_1
+                    change_current_weight = -75
+                }
+            }
+        }
+    }
+
+    left_portrait = {
+        character = scope:los_host
+        animation = personality_zealous
+    }
+
+    center_portrait = {
+        character = scope:los_guest
+        animation = personality_compassionate
+    }
+
+    lower_center_portrait = {
+        character = scope:los_host.primary_spouse
+        animation = grief
+        triggered_outfit = {
+            trigger = {
+                scope:los_host.primary_spouse = {
+                    has_character_flag = los_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_maid_outfit }
+        }
+    }
+
+    right_portrait = {
+        character = scope:los_market_clinic_healer
+        animation = physician
+    }
+
+    option = {
+        name = los_market_event.2003.o_0
+
+        trigger_event = los_market_event.2004
+    }
+
+    after = {}
+}
+los_market_event.2004 = {
+    type = character_event
+    title = los_market_event.2004.t
+    theme = landless_adventurer
+
+    override_background = { reference = physicians_study }
+
+    override_effect_2d = fog
+
+    window = visit_settlement_window
+
+    desc = los_market_event.2004.d_0
+
+    immediate = {}
+
+    left_portrait = {
+        character = scope:los_host
+        animation = personality_zealous
+    }
+
+    center_portrait = {
+        character = scope:los_guest
+        animation = personality_compassionate
+    }
+
+    lower_center_portrait = {
+        character = scope:los_host.primary_spouse
+        triggered_outfit = {
+            trigger = {
+                scope:los_host.primary_spouse = {
+                    has_character_flag = los_maid
+                }
+            }
+            remove_default_outfit = no
+            outfit_tags = { los_maid_outfit }
+        }
+    }
+
+    right_portrait = {
+        character = scope:los_market_clinic_healer
+        animation = anger
+    }
+
+    option = {
+        name = los_market_event.2004.o_0
+
+        trigger_event = los_market_event.2005
+    }
+
+    after = {}
+}
